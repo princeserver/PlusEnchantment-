@@ -1,0 +1,956 @@
+servername:
+
+ScrapRate:
+  IRON_INGOT:
+    scrap: 1
+    Need: 8
+
+ScrapRepairRate:
+  WOODEN_AXE: 1
+  WOODEN_HOE: 1
+  WOODEN_PICKAXE: 1
+  WOODEN_SHOVEL: 1
+  WOODEN_SWORD: 1
+  DIAMOND_AXE: 8
+  DIAMOND_HOE: 8
+  DIAMOND_PICKAXE: 8
+  DIAMOND_SHOVEL: 8
+  DIAMOND_SWORD: 8
+  GOLDEN_AXE: 4
+  GOLDEN_HOE: 4
+  GOLDEN_PICKAXE: 4
+  GOLDEN_SHOVEL: 4
+  GOLDEN_SWORD: 4
+  IRON_AXE: 5
+  IRON_HOE: 5
+  IRON_PICKAXE: 5
+  IRON_SHOVEL: 5
+  IRON_SWORD: 5
+  NETHERITE_AXE: 12
+  NETHERITE_HOE: 12
+  NETHERITE_PICKAXE: 12
+  NETHERITE_SHOVEL: 12
+  NETHERITE_SWORD: 12
+  STONE_AXE: 2
+  STONE_HOE: 2
+  STONE_PICKAXE: 2
+  STONE_SHOVEL: 2
+  STONE_SWORD: 2
+  LEATHER_BOOTS: 1
+  LEATHER_CHESTPLATE: 1
+  LEATHER_HELMET: 1
+  LEATHER_HORSE_ARMOR: 1
+  LEATHER_LEGGINGS: 1
+  DIAMOND_BOOTS: 5
+  DIAMOND_CHESTPLATE: 5
+  DIAMOND_HELMET: 5
+  DIAMOND_HORSE_ARMOR: 1
+  DIAMOND_LEGGINGS: 5
+  GOLDEN_BOOTS: 1
+  GOLDEN_CHESTPLATE: 1
+  GOLDEN_HELMET: 1
+  GOLDEN_HORSE_ARMOR: 1
+  GOLDEN_LEGGINGS: 1
+  IRON_BOOTS: 4
+  IRON_CHESTPLATE: 4
+  IRON_HELMET: 4
+  IRON_HORSE_ARMOR: 1
+  IRON_LEGGINGS: 4
+  NETHERITE_BOOTS: 8
+  NETHERITE_CHESTPLATE: 8
+  NETHERITE_HELMET: 8
+  NETHERITE_HORSE_ARMOR: 8
+  NETHERITE_LEGGINGS: 8
+  CHAINMAIL_BOOTS: 2
+  CHAINMAIL_CHESTPLATE: 2
+  CHAINMAIL_HELMET: 2
+  CHAINMAIL_HORSE_ARMOR: 2
+  CHAINMAIL_LEGGINGS: 2
+  BOW: 5
+  CROSSBOW: 4
+  FISHING_ROD: 2
+  ELYTRA: 20
+  TURTLE_HELMET: 4
+  CARROT_ON_A_STICK: 1
+  WARPED_FUNGUS_ON_A_STICK: 1
+  SHIELD: 4
+  FLINT_AND_STEEL: 1
+  TRIDENT: 8
+  SHEARS: 1
+
+
+ItemList:
+  - WOODEN_AXE
+  - WOODEN_HOE
+  - WOODEN_PICKAXE
+  - WOODEN_SHOVEL
+  - WOODEN_SWORD
+  - DIAMOND_AXE
+  - DIAMOND_HOE
+  - DIAMOND_PICKAXE
+  - DIAMOND_SHOVEL
+  - DIAMOND_SWORD
+  - GOLDEN_AXE
+  - GOLDEN_HOE
+  - GOLDEN_PICKAXE
+  - GOLDEN_SHOVEL
+  - GOLDEN_SWORD
+  - IRON_AXE
+  - IRON_HOE
+  - IRON_PICKAXE
+  - IRON_SHOVEL
+  - IRON_SWORD
+  - NETHERITE_AXE
+  - NETHERITE_HOE
+  - NETHERITE_PICKAXE
+  - NETHERITE_SHOVEL
+  - NETHERITE_SWORD
+  - STONE_AXE
+  - STONE_HOE
+  - STONE_PICKAXE
+  - STONE_SHOVEL
+  - STONE_SWORD
+  - LEATHER_BOOTS
+  - LEATHER_CHESTPLATE
+  - LEATHER_HELMET
+  - LEATHER_HORSE_ARMOR
+  - LEATHER_LEGGINGS
+  - DIAMOND_BOOTS
+  - DIAMOND_CHESTPLATE
+  - DIAMOND_HELMET
+  - DIAMOND_HORSE_ARMOR
+  - DIAMOND_LEGGINGS
+  - GOLDEN_BOOTS
+  - GOLDEN_CHESTPLATE
+  - GOLDEN_HELMET
+  - GOLDEN_HORSE_ARMOR
+  - GOLDEN_LEGGINGS
+  - IRON_BOOTS
+  - IRON_CHESTPLATE
+  - IRON_HELMET
+  - IRON_HORSE_ARMOR
+  - IRON_LEGGINGS
+  - NETHERITE_BOOTS
+  - NETHERITE_CHESTPLATE
+  - NETHERITE_HELMET
+  - NETHERITE_HORSE_ARMOR
+  - NETHERITE_LEGGINGS
+  - CHAINMAIL_BOOTS
+  - CHAINMAIL_CHESTPLATE
+  - CHAINMAIL_HELMET
+  - CHAINMAIL_HORSE_ARMOR
+  - CHAINMAIL_LEGGINGS
+  - ENCHANTED_BOOK
+  - ELYTRA
+  - TURTLE_HELMET
+  - CROSSBOW
+  - CARROT_ON_A_STICK
+  - WARPED_FUNGUS_ON_A_STICK
+  - SHIELD
+  - BOW
+  - FISHING_ROD
+  - FLINT_AND_STEEL
+  - TRIDENT
+  - SHEARS
+
+BrokenItem:
+  - NETHERITE_BOOTS
+  - NETHERITE_CHESTPLATE
+  - NETHERITE_HELMET
+  - NETHERITE_HORSE_ARMOR
+  - NETHERITE_LEGGINGS
+  - NETHERITE_AXE
+  - NETHERITE_HOE
+  - NETHERITE_PICKAXE
+  - NETHERITE_SHOVEL
+  - NETHERITE_SWORD
+
+Enchantment:
+  DURABILITY:
+    AddCoefficient: 20
+    MaxLevel: 10
+    ConflictEnchant:
+      - None
+    PossibleItem:
+      - ENCHANTED_BOOK
+      - WOODEN_SWORD
+      - DIAMOND_SWORD
+      - GOLDEN_SWORD
+      - IRON_SWORD
+      - NETHERITE_SWORD
+      - STONE_SWORD
+      - WOODEN_AXE
+      - DIAMOND_AXE
+      - GOLDEN_AXE
+      - IRON_AXE
+      - NETHERITE_AXE
+      - STONE_AXE
+      - WOODEN_PICKAXE
+      - DIAMOND_PICKAXE
+      - GOLDEN_PICKAXE
+      - IRON_PICKAXE
+      - NETHERITE_PICKAXE
+      - STONE_PICKAXE
+      - WOODEN_SHOVEL
+      - DIAMOND_SHOVEL
+      - GOLDEN_SHOVEL
+      - IRON_SHOVEL
+      - NETHERITE_SHOVEL
+      - STONE_SHOVEL
+      - WOODEN_HOE
+      - DIAMOND_HOE
+      - GOLDEN_HOE
+      - IRON_HOE
+      - NETHERITE_HOE
+      - STONE_HOE
+      - LEATHER_HELMET
+      - DIAMOND_HELMET
+      - GOLDEN_HELMET
+      - IRON_HELMET
+      - NETHERITE_HELMET
+      - CHAINMAIL_HELMET
+      - TURTLE_HELMET
+      - LEATHER_CHESTPLATE
+      - DIAMOND_CHESTPLATE
+      - GOLDEN_CHESTPLATE
+      - IRON_CHESTPLATE
+      - NETHERITE_CHESTPLATE
+      - CHAINMAIL_CHESTPLATE
+      - LEATHER_CHESTPLATE
+      - DIAMOND_CHESTPLATE
+      - GOLDEN_CHESTPLATE
+      - IRON_CHESTPLATE
+      - NETHERITE_CHESTPLATE
+      - CHAINMAIL_CHESTPLATE
+      - LEATHER_LEGGINGS
+      - DIAMOND_LEGGINGS
+      - GOLDEN_LEGGINGS
+      - IRON_LEGGINGS
+      - NETHERITE_LEGGINGS
+      - CHAINMAIL_LEGGINGS
+      - LEATHER_BOOTS
+      - DIAMOND_BOOTS
+      - GOLDEN_BOOTS
+      - IRON_BOOTS
+      - NETHERITE_BOOTS
+      - CHAINMAIL_BOOTS
+      - ELYTRA
+      - BOW
+      - CROSSBOW
+      - CARROT_ON_A_STICK
+      - WARPED_FUNGUS_ON_A_STICK
+      - FISHING_ROD
+      - FLINT_AND_STEEL
+      - TRIDENT
+  ARROW_DAMAGE:
+    AddCoefficient: 0
+    MaxLevel: 0
+    ConflictEnchant:
+      - None
+    PossibleItem:
+      - ENCHANTED_BOOK
+      - BOW
+  ARROW_FIRE:
+    AddCoefficient: 0
+    MaxLevel: 0
+    ConflictEnchant:
+      - None
+    PossibleItem:
+      - ENCHANTED_BOOK
+      - BOW
+  ARROW_INFINITE:
+    AddCoefficient: 0
+    MaxLevel: 0
+    ConflictEnchant:
+      - None
+    PossibleItem:
+      - ENCHANTED_BOOK
+      - BOW
+  ARROW_KNOCKBACK:
+    AddCoefficient: 0
+    MaxLevel: 0
+    ConflictEnchant:
+      - None
+    PossibleItem:
+      - ENCHANTED_BOOK
+      - BOW
+  BINDING_CURSE:
+    AddCoefficient: 0
+    MaxLevel: 0
+    ConflictEnchant:
+      - None
+    PossibleItem:
+      - ENCHANTED_BOOK
+      - WOODEN_SWORD
+      - DIAMOND_SWORD
+      - GOLDEN_SWORD
+      - IRON_SWORD
+      - NETHERITE_SWORD
+      - STONE_SWORD
+      - WOODEN_AXE
+      - DIAMOND_AXE
+      - GOLDEN_AXE
+      - IRON_AXE
+      - NETHERITE_AXE
+      - STONE_AXE
+      - WOODEN_PICKAXE
+      - DIAMOND_PICKAXE
+      - GOLDEN_PICKAXE
+      - IRON_PICKAXE
+      - NETHERITE_PICKAXE
+      - STONE_PICKAXE
+      - WOODEN_SHOVEL
+      - DIAMOND_SHOVEL
+      - GOLDEN_SHOVEL
+      - IRON_SHOVEL
+      - NETHERITE_SHOVEL
+      - STONE_SHOVEL
+      - WOODEN_HOE
+      - DIAMOND_HOE
+      - GOLDEN_HOE
+      - IRON_HOE
+      - NETHERITE_HOE
+      - STONE_HOE
+      - LEATHER_HELMET
+      - DIAMOND_HELMET
+      - GOLDEN_HELMET
+      - IRON_HELMET
+      - NETHERITE_HELMET
+      - CHAINMAIL_HELMET
+      - TURTLE_HELMET
+      - LEATHER_CHESTPLATE
+      - DIAMOND_CHESTPLATE
+      - GOLDEN_CHESTPLATE
+      - IRON_CHESTPLATE
+      - NETHERITE_CHESTPLATE
+      - CHAINMAIL_CHESTPLATE
+      - LEATHER_CHESTPLATE
+      - DIAMOND_CHESTPLATE
+      - GOLDEN_CHESTPLATE
+      - IRON_CHESTPLATE
+      - NETHERITE_CHESTPLATE
+      - CHAINMAIL_CHESTPLATE
+      - LEATHER_LEGGINGS
+      - DIAMOND_LEGGINGS
+      - GOLDEN_LEGGINGS
+      - IRON_LEGGINGS
+      - NETHERITE_LEGGINGS
+      - CHAINMAIL_LEGGINGS
+      - LEATHER_BOOTS
+      - DIAMOND_BOOTS
+      - GOLDEN_BOOTS
+      - IRON_BOOTS
+      - NETHERITE_BOOTS
+      - CHAINMAIL_BOOTS
+      - ELYTRA
+      - BOW
+      - CROSSBOW
+      - CARROT_ON_A_STICK
+      - WARPED_FUNGUS_ON_A_STICK
+      - FISHING_ROD
+      - FLINT_AND_STEEL
+      - TRIDENT
+      - IRON_HORSE_ARMOR
+      - GOLDEN_HORSE_ARMOR
+      - DIAMOND_HORSE_ARMOR
+      - SHEARS
+  CHANNELING:
+    AddCoefficient: 0
+    MaxLevel: 0
+    ConflictEnchant:
+      - None
+    PossibleItem:
+      - ENCHANTED_BOOK
+      - TRIDENT
+  DAMAGE_ALL:
+    AddCoefficient: 0
+    MaxLevel: 0
+    ConflictEnchant:
+      - None
+    PossibleItem:
+      - ENCHANTED_BOOK
+      - WOODEN_SWORD
+      - DIAMOND_SWORD
+      - GOLDEN_SWORD
+      - IRON_SWORD
+      - NETHERITE_SWORD
+      - STONE_SWORD
+      - TRIDENT
+  DAMAGE_ARTHROPODS:
+    AddCoefficient: 0
+    MaxLevel: 0
+    ConflictEnchant:
+      - None
+    PossibleItem:
+      - ENCHANTED_BOOK
+      - WOODEN_SWORD
+      - DIAMOND_SWORD
+      - GOLDEN_SWORD
+      - IRON_SWORD
+      - NETHERITE_SWORD
+      - STONE_SWORD
+      - TRIDENT
+  DAMAGE_UNDEAD:
+    AddCoefficient: 0
+    MaxLevel: 0
+    ConflictEnchant:
+      - None
+    PossibleItem:
+      - ENCHANTED_BOOK
+      - WOODEN_SWORD
+      - DIAMOND_SWORD
+      - GOLDEN_SWORD
+      - IRON_SWORD
+      - NETHERITE_SWORD
+      - STONE_SWORD
+      - TRIDENT
+  DEPTH_STRIDER:
+    AddCoefficient: 0
+    MaxLevel: 0
+    ConflictEnchant:
+      - None
+    PossibleItem:
+      - ENCHANTED_BOOK
+      - LEATHER_BOOTS
+      - DIAMOND_BOOTS
+      - GOLDEN_BOOTS
+      - IRON_BOOTS
+      - NETHERITE_BOOTS
+      - CHAINMAIL_BOOTS
+      - IRON_HORSE_ARMOR
+      - GOLDEN_HORSE_ARMOR
+      - DIAMOND_HORSE_ARMOR
+  DIG_SPEED:
+    AddCoefficient: 0
+    MaxLevel: 0
+    ConflictEnchant:
+      - None
+    PossibleItem:
+      - ENCHANTED_BOOK
+      - WOODEN_AXE
+      - DIAMOND_AXE
+      - GOLDEN_AXE
+      - IRON_AXE
+      - NETHERITE_AXE
+      - STONE_AXE
+      - WOODEN_PICKAXE
+      - DIAMOND_PICKAXE
+      - GOLDEN_PICKAXE
+      - IRON_PICKAXE
+      - NETHERITE_PICKAXE
+      - STONE_PICKAXE
+      - WOODEN_SHOVEL
+      - DIAMOND_SHOVEL
+      - GOLDEN_SHOVEL
+      - IRON_SHOVEL
+      - NETHERITE_SHOVEL
+      - STONE_SHOVEL
+      - WOODEN_HOE
+      - DIAMOND_HOE
+      - GOLDEN_HOE
+      - IRON_HOE
+      - NETHERITE_HOE
+      - STONE_HOE
+      - SHEARS
+  FIRE_ASPECT:
+    AddCoefficient: 0
+    MaxLevel: 0
+    ConflictEnchant:
+      - None
+    PossibleItem:
+      - ENCHANTED_BOOK
+      - WOODEN_SWORD
+      - DIAMOND_SWORD
+      - GOLDEN_SWORD
+      - IRON_SWORD
+      - NETHERITE_SWORD
+      - STONE_SWORD
+  FROST_WALKER:
+    AddCoefficient: 0
+    MaxLevel: 0
+    ConflictEnchant:
+      - None
+    PossibleItem:
+      - ENCHANTED_BOOK
+      - LEATHER_BOOTS
+      - DIAMOND_BOOTS
+      - GOLDEN_BOOTS
+      - IRON_BOOTS
+      - NETHERITE_BOOTS
+      - CHAINMAIL_BOOTS
+  IMPALING:
+    AddCoefficient: 0
+    MaxLevel: 0
+    ConflictEnchant:
+      - None
+    PossibleItem:
+      - ENCHANTED_BOOK
+      - ENCHANTED_BOOK
+      - WOODEN_SWORD
+      - DIAMOND_SWORD
+      - GOLDEN_SWORD
+      - IRON_SWORD
+      - NETHERITE_SWORD
+      - STONE_SWORD
+      - TRIDENT
+  KNOCKBACK:
+    AddCoefficient: 0
+    MaxLevel: 0
+    ConflictEnchant:
+      - None
+    PossibleItem:
+      - ENCHANTED_BOOK
+      - ENCHANTED_BOOK
+      - WOODEN_SWORD
+      - DIAMOND_SWORD
+      - GOLDEN_SWORD
+      - IRON_SWORD
+      - NETHERITE_SWORD
+      - STONE_SWORD
+  LOOT_BONUS_BLOCKS:
+    AddCoefficient: 0
+    MaxLevel: 0
+    ConflictEnchant:
+      - None
+    PossibleItem:
+      - ENCHANTED_BOOK
+      - ENCHANTED_BOOK
+      - WOODEN_AXE
+      - DIAMOND_AXE
+      - GOLDEN_AXE
+      - IRON_AXE
+      - NETHERITE_AXE
+      - STONE_AXE
+      - WOODEN_PICKAXE
+      - DIAMOND_PICKAXE
+      - GOLDEN_PICKAXE
+      - IRON_PICKAXE
+      - NETHERITE_PICKAXE
+      - STONE_PICKAXE
+      - WOODEN_SHOVEL
+      - DIAMOND_SHOVEL
+      - GOLDEN_SHOVEL
+      - IRON_SHOVEL
+      - NETHERITE_SHOVEL
+      - STONE_SHOVEL
+      - WOODEN_HOE
+      - DIAMOND_HOE
+      - GOLDEN_HOE
+      - IRON_HOE
+      - NETHERITE_HOE
+      - STONE_HOE
+  LOOT_BONUS_MOBS:
+    AddCoefficient: 0
+    MaxLevel: 0
+    ConflictEnchant:
+      - None
+    PossibleItem:
+      - ENCHANTED_BOOK
+      - ENCHANTED_BOOK
+      - WOODEN_SWORD
+      - DIAMOND_SWORD
+      - GOLDEN_SWORD
+      - IRON_SWORD
+      - NETHERITE_SWORD
+      - STONE_SWORD
+  LOYALTY:
+    AddCoefficient: 0
+    MaxLevel: 0
+    ConflictEnchant:
+      - None
+    PossibleItem:
+      - ENCHANTED_BOOK
+      - TRIDENT
+  LUCK:
+    AddCoefficient: 0
+    MaxLevel: 0
+    ConflictEnchant:
+      - None
+    PossibleItem:
+      - ENCHANTED_BOOK
+      - FISHING_ROD
+  LURE:
+    AddCoefficient: 0
+    MaxLevel: 0
+    ConflictEnchant:
+      - None
+    PossibleItem:
+      - ENCHANTED_BOOK
+      - FISHING_ROD
+  MENDING:
+    AddCoefficient: 0
+    MaxLevel: 0
+    ConflictEnchant:
+      - None
+    PossibleItem:
+  MULTISHOT:
+    AddCoefficient: 0
+    MaxLevel: 0
+    ConflictEnchant:
+      - None
+    PossibleItem:
+      - ENCHANTED_BOOK
+      - CROSSBOW
+  OXYGEN:
+    AddCoefficient: 0
+    MaxLevel: 0
+    ConflictEnchant:
+      - None
+    PossibleItem:
+      - ENCHANTED_BOOK
+      - LEATHER_HELMET
+      - DIAMOND_HELMET
+      - GOLDEN_HELMET
+      - IRON_HELMET
+      - NETHERITE_HELMET
+      - CHAINMAIL_HELMET
+      - TURTLE_HELMET
+  PIERCING:
+    AddCoefficient: 0
+    MaxLevel: 0
+    ConflictEnchant:
+      - None
+    PossibleItem:
+      - ENCHANTED_BOOK
+      - CROSSBOW
+  PROTECTION_EXPLOSIONS:
+    AddCoefficient: 0
+    MaxLevel: 0
+    ConflictEnchant:
+      - None
+    PossibleItem:
+      - ENCHANTED_BOOK
+      - LEATHER_HELMET
+      - DIAMOND_HELMET
+      - GOLDEN_HELMET
+      - IRON_HELMET
+      - NETHERITE_HELMET
+      - CHAINMAIL_HELMET
+      - TURTLE_HELMET
+      - LEATHER_CHESTPLATE
+      - DIAMOND_CHESTPLATE
+      - GOLDEN_CHESTPLATE
+      - IRON_CHESTPLATE
+      - NETHERITE_CHESTPLATE
+      - CHAINMAIL_CHESTPLATE
+      - LEATHER_CHESTPLATE
+      - DIAMOND_CHESTPLATE
+      - GOLDEN_CHESTPLATE
+      - IRON_CHESTPLATE
+      - NETHERITE_CHESTPLATE
+      - CHAINMAIL_CHESTPLATE
+      - LEATHER_LEGGINGS
+      - DIAMOND_LEGGINGS
+      - GOLDEN_LEGGINGS
+      - IRON_LEGGINGS
+      - NETHERITE_LEGGINGS
+      - CHAINMAIL_LEGGINGS
+      - LEATHER_BOOTS
+      - DIAMOND_BOOTS
+      - GOLDEN_BOOTS
+      - IRON_BOOTS
+      - NETHERITE_BOOTS
+      - CHAINMAIL_BOOTS
+  PROTECTION_FALL:
+    AddCoefficient: 0
+    MaxLevel: 0
+    ConflictEnchant:
+      - None
+    PossibleItem:
+      - ENCHANTED_BOOK
+      - LEATHER_BOOTS
+      - DIAMOND_BOOTS
+      - GOLDEN_BOOTS
+      - IRON_BOOTS
+      - NETHERITE_BOOTS
+      - CHAINMAIL_BOOTS
+      - IRON_HORSE_ARMOR
+      - GOLDEN_HORSE_ARMOR
+      - DIAMOND_HORSE_ARMOR
+  PROTECTION_FIRE:
+    AddCoefficient: 0
+    MaxLevel: 0
+    ConflictEnchant:
+      - None
+    PossibleItem:
+      - ENCHANTED_BOOK
+      - LEATHER_HELMET
+      - DIAMOND_HELMET
+      - GOLDEN_HELMET
+      - IRON_HELMET
+      - NETHERITE_HELMET
+      - CHAINMAIL_HELMET
+      - TURTLE_HELMET
+      - LEATHER_CHESTPLATE
+      - DIAMOND_CHESTPLATE
+      - GOLDEN_CHESTPLATE
+      - IRON_CHESTPLATE
+      - NETHERITE_CHESTPLATE
+      - CHAINMAIL_CHESTPLATE
+      - LEATHER_CHESTPLATE
+      - DIAMOND_CHESTPLATE
+      - GOLDEN_CHESTPLATE
+      - IRON_CHESTPLATE
+      - NETHERITE_CHESTPLATE
+      - CHAINMAIL_CHESTPLATE
+      - LEATHER_LEGGINGS
+      - DIAMOND_LEGGINGS
+      - GOLDEN_LEGGINGS
+      - IRON_LEGGINGS
+      - NETHERITE_LEGGINGS
+      - CHAINMAIL_LEGGINGS
+      - LEATHER_BOOTS
+      - DIAMOND_BOOTS
+      - GOLDEN_BOOTS
+      - IRON_BOOTS
+      - NETHERITE_BOOTS
+      - CHAINMAIL_BOOTS
+  PROTECTION_PROJECTILE:
+    AddCoefficient: 0
+    MaxLevel: 0
+    ConflictEnchant:
+      - None
+    PossibleItem:
+      - ENCHANTED_BOOK
+      - LEATHER_HELMET
+      - DIAMOND_HELMET
+      - GOLDEN_HELMET
+      - IRON_HELMET
+      - NETHERITE_HELMET
+      - CHAINMAIL_HELMET
+      - TURTLE_HELMET
+      - LEATHER_CHESTPLATE
+      - DIAMOND_CHESTPLATE
+      - GOLDEN_CHESTPLATE
+      - IRON_CHESTPLATE
+      - NETHERITE_CHESTPLATE
+      - CHAINMAIL_CHESTPLATE
+      - LEATHER_CHESTPLATE
+      - DIAMOND_CHESTPLATE
+      - GOLDEN_CHESTPLATE
+      - IRON_CHESTPLATE
+      - NETHERITE_CHESTPLATE
+      - CHAINMAIL_CHESTPLATE
+      - LEATHER_LEGGINGS
+      - DIAMOND_LEGGINGS
+      - GOLDEN_LEGGINGS
+      - IRON_LEGGINGS
+      - NETHERITE_LEGGINGS
+      - CHAINMAIL_LEGGINGS
+      - LEATHER_BOOTS
+      - DIAMOND_BOOTS
+      - GOLDEN_BOOTS
+      - IRON_BOOTS
+      - NETHERITE_BOOTS
+      - CHAINMAIL_BOOTS
+  QUICK_CHARGE:
+    AddCoefficient: 0
+    MaxLevel: 0
+    ConflictEnchant:
+      - None
+    PossibleItem:
+      - ENCHANTED_BOOK
+      - CROSSBOW
+  RIOTIDE:
+    AddCoefficient: 0
+    MaxLevel: 0
+    ConflictEnchant:
+      - None
+    PossibleItem:
+      - ENCHANTED_BOOK
+      - TRIDENT
+  SILK_TOUCH:
+    AddCoefficient: 0
+    MaxLevel: 0
+    ConflictEnchant:
+      - None
+    PossibleItem:
+      - ENCHANTED_BOOK
+      - ENCHANTED_BOOK
+      - ENCHANTED_BOOK
+      - WOODEN_AXE
+      - DIAMOND_AXE
+      - GOLDEN_AXE
+      - IRON_AXE
+      - NETHERITE_AXE
+      - STONE_AXE
+      - WOODEN_PICKAXE
+      - DIAMOND_PICKAXE
+      - GOLDEN_PICKAXE
+      - IRON_PICKAXE
+      - NETHERITE_PICKAXE
+      - STONE_PICKAXE
+      - WOODEN_SHOVEL
+      - DIAMOND_SHOVEL
+      - GOLDEN_SHOVEL
+      - IRON_SHOVEL
+      - NETHERITE_SHOVEL
+      - STONE_SHOVEL
+      - WOODEN_HOE
+      - DIAMOND_HOE
+      - GOLDEN_HOE
+      - IRON_HOE
+      - NETHERITE_HOE
+      - STONE_HOE
+  SOUL_SPEED:
+    AddCoefficient: 0
+    MaxLevel: 0
+    ConflictEnchant:
+      - None
+    PossibleItem:
+      - ENCHANTED_BOOK
+      - LEATHER_BOOTS
+      - DIAMOND_BOOTS
+      - GOLDEN_BOOTS
+      - IRON_BOOTS
+      - NETHERITE_BOOTS
+      - CHAINMAIL_BOOTS
+  SWEEPING_EDGE:
+    AddCoefficient: 0
+    MaxLevel: 0
+    ConflictEnchant:
+      - None
+    PossibleItem:
+      - ENCHANTED_BOOK
+      - WOODEN_SWORD
+      - DIAMOND_SWORD
+      - GOLDEN_SWORD
+      - IRON_SWORD
+      - NETHERITE_SWORD
+      - STONE_SWORD
+  THORNS:
+    AddCoefficient: 0
+    MaxLevel: 0
+    ConflictEnchant:
+      - None
+    PossibleItem:
+      - ENCHANTED_BOOK
+      - IRON_HORSE_ARMOR
+      - GOLDEN_HORSE_ARMOR
+      - DIAMOND_HORSE_ARMOR
+      - LEATHER_HELMET
+      - DIAMOND_HELMET
+      - GOLDEN_HELMET
+      - IRON_HELMET
+      - NETHERITE_HELMET
+      - CHAINMAIL_HELMET
+      - TURTLE_HELMET
+      - LEATHER_CHESTPLATE
+      - DIAMOND_CHESTPLATE
+      - GOLDEN_CHESTPLATE
+      - IRON_CHESTPLATE
+      - NETHERITE_CHESTPLATE
+      - CHAINMAIL_CHESTPLATE
+      - LEATHER_CHESTPLATE
+      - DIAMOND_CHESTPLATE
+      - GOLDEN_CHESTPLATE
+      - IRON_CHESTPLATE
+      - NETHERITE_CHESTPLATE
+      - CHAINMAIL_CHESTPLATE
+      - LEATHER_LEGGINGS
+      - DIAMOND_LEGGINGS
+      - GOLDEN_LEGGINGS
+      - IRON_LEGGINGS
+      - NETHERITE_LEGGINGS
+      - CHAINMAIL_LEGGINGS
+      - LEATHER_BOOTS
+      - DIAMOND_BOOTS
+      - GOLDEN_BOOTS
+      - IRON_BOOTS
+      - NETHERITE_BOOTS
+      - CHAINMAIL_BOOTS
+  VANISHING_CURSE:
+    AddCoefficient: 0
+    MaxLevel: 0
+    ConflictEnchant:
+      - None
+    PossibleItem:
+      - ENCHANTED_BOOK
+      - WOODEN_AXE
+      - WOODEN_HOE
+      - WOODEN_PICKAXE
+      - WOODEN_SHOVEL
+      - WOODEN_SWORD
+      - DIAMOND_AXE
+      - DIAMOND_HOE
+      - DIAMOND_PICKAXE
+      - DIAMOND_SHOVEL
+      - DIAMOND_SWORD
+      - GOLDEN_AXE
+      - GOLDEN_HOE
+      - GOLDEN_PICKAXE
+      - GOLDEN_SHOVEL
+      - GOLDEN_SWORD
+      - IRON_AXE
+      - IRON_HOE
+      - IRON_PICKAXE
+      - IRON_SHOVEL
+      - IRON_SWORD
+      - NETHERITE_AXE
+      - NETHERITE_HOE
+      - NETHERITE_PICKAXE
+      - NETHERITE_SHOVEL
+      - NETHERITE_SWORD
+      - STONE_AXE
+      - STONE_HOE
+      - STONE_PICKAXE
+      - STONE_SHOVEL
+      - STONE_SWORD
+      - LEATHER_BOOTS
+      - LEATHER_CHESTPLATE
+      - LEATHER_HELMET
+      - LEATHER_HORSE_ARMOR
+      - LEATHER_LEGGINGS
+      - DIAMOND_BOOTS
+      - DIAMOND_CHESTPLATE
+      - DIAMOND_HELMET
+      - DIAMOND_HORSE_ARMOR
+      - DIAMOND_LEGGINGS
+      - GOLDEN_BOOTS
+      - GOLDEN_CHESTPLATE
+      - GOLDEN_HELMET
+      - GOLDEN_HORSE_ARMOR
+      - GOLDEN_LEGGINGS
+      - IRON_BOOTS
+      - IRON_CHESTPLATE
+      - IRON_HELMET
+      - IRON_HORSE_ARMOR
+      - IRON_LEGGINGS
+      - NETHERITE_BOOTS
+      - NETHERITE_CHESTPLATE
+      - NETHERITE_HELMET
+      - NETHERITE_HORSE_ARMOR
+      - NETHERITE_LEGGINGS
+      - CHAINMAIL_BOOTS
+      - CHAINMAIL_CHESTPLATE
+      - CHAINMAIL_HELMET
+      - CHAINMAIL_HORSE_ARMOR
+      - CHAINMAIL_LEGGINGS
+      - ENCHANTED_BOOK
+      - ELYTRA
+      - TURTLE_HELMET
+      - CROSSBOW
+      - CARROT_ON_A_STICK
+      - WARPED_FUNGUS_ON_A_STICK
+      - SHIELD
+      - BOW
+      - FISHING_ROD
+      - FLINT_AND_STEEL
+      - TRIDENT
+      - SHEARS
+  WATER_WORKER:
+    AddCoefficient: 0
+    MaxLevel: 0
+    ConflictEnchant:
+      - None
+    PossibleItem:
+      - ENCHANTED_BOOK
+      - LEATHER_BOOTS
+      - DIAMOND_BOOTS
+      - GOLDEN_BOOTS
+      - IRON_BOOTS
+      - NETHERITE_BOOTS
+      - CHAINMAIL_BOOTS
+
+
+

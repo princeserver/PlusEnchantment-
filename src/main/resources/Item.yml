@@ -1,0 +1,16 @@
+Item:
+  BackGrond:
+    ItemType: WHITE_STAINED_GLASS_PANE
+    DisplayName:
+    CustomModelData: 1
+    Lore:
+      - None
+
+  ChangeNameModeItem:
+    ItemType: WHITE_STAINED_GLASS_PANE
+    DisplayName: -アイテム名編集モード-
+    CustomModelData: 1
+    Lore:
+      - アイテムに名前を付けることができます。
+      - このモードは素手の状態で設置された金床を
+      - /スニークしながら右クリック+GREEN+UNDERLINE/すると開くことができます。

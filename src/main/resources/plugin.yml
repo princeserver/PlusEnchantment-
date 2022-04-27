@@ -1,0 +1,11 @@
+name: PlusEnchantment
+version: '${version}'
+main: com.github.majisyou.plusenchantment.PlusEnchantment
+api-version: 1.18
+authors: [ majisyou ]
+description: add limit break enchant, add scrap system, add custom enchant
+
+commands:
+  test:
+    description: commandtest用
+    usage: 原因不明の失敗
