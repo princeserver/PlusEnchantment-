@@ -1,12 +1,11 @@
 package com.github.majisyou.plusenchantment;
 
+import com.github.majisyou.plusenchantment.Command.Cmd_DebugEnchant;
 import com.github.majisyou.plusenchantment.Command.Cmd_test;
 import com.github.majisyou.plusenchantment.Config.CustomConfig;
-import com.github.majisyou.plusenchantment.Event.OpenInventory;
-import com.github.majisyou.plusenchantment.Event.PlayerBrokenItem;
-import com.github.majisyou.plusenchantment.Event.PlayerClick;
-import com.github.majisyou.plusenchantment.Event.PlayerRightClick;
-import org.bukkit.configuration.file.FileConfiguration;
+import com.github.majisyou.plusenchantment.Event.*;
+import com.github.majisyou.plusenchantment.Event.Enchant.TELEPATHY;
+import com.github.majisyou.plusenchantment.System.CustomEnchants;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public final class PlusEnchantment extends JavaPlugin {
@@ -23,6 +22,7 @@ public final class PlusEnchantment extends JavaPlugin {
 
         //commands
         new Cmd_test(this);
+        new Cmd_DebugEnchant(this);
 
         //Config系の設定
         saveDefaultConfig();
@@ -33,7 +33,10 @@ public final class PlusEnchantment extends JavaPlugin {
         new PlayerClick(this);
         new PlayerBrokenItem(this);
         new PlayerRightClick(this);
+        new CloseInventory(this);
 
+//        //customEnchant
+//        CustomEnchants.register();
 
         getLogger().info("PlusEnchantmentを読み込む！");
     }

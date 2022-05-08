@@ -4,7 +4,9 @@ import com.github.majisyou.plusenchantment.NBT.ItemNBTLoader;
 import com.github.majisyou.plusenchantment.PlusEnchantment;
 import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
+import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.util.io.BukkitObjectInputStream;
 import org.bukkit.util.io.BukkitObjectOutputStream;
 
@@ -21,6 +23,10 @@ public class ItemBuilder {
 
     public static ItemStack BrokenItem(ItemStack item){
         ItemStack BrokenItem = new ItemStack(Material.COMMAND_BLOCK,1);
+        ItemMeta BrokenItemMeta = BrokenItem.getItemMeta();
+        BrokenItemMeta.addEnchant(Enchantment.DURABILITY,1,true);
+        BrokenItemMeta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
+        BrokenItemMeta.setCustomModelData(1);
         ItemNBTLoader.ItemNBTLoad(BrokenItem);
         ByteArrayOutputStream io = new ByteArrayOutputStream();
         String encodeObject;

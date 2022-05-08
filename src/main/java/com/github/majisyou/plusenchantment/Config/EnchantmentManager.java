@@ -4,7 +4,6 @@ import com.github.majisyou.plusenchantment.PlusEnchantment;
 import org.bukkit.configuration.file.FileConfiguration;
 
 import java.util.List;
-import java.util.Map;
 
 public class EnchantmentManager {
     private static PlusEnchantment plugin = PlusEnchantment.getInstance();
@@ -27,7 +26,7 @@ public class EnchantmentManager {
     }
 
     public static void loadEnchantment(String EnchantName){
-        String path = "Enchants."+EnchantName;
+        String path = "Enchantment."+EnchantName;
         AddCoefficient = config.getInt(path+".AddCoefficient");
         MaxLevel = config.getInt(path+".MaxLevel");
         ConflictEnchant = config.getStringList(path+".ConflictEnchant");

@@ -1,37 +1,16 @@
 package com.github.majisyou.plusenchantment.Command;
 
-import com.github.majisyou.plusenchantment.Gui.GuiMaster;
-import com.github.majisyou.plusenchantment.NBT.ItemNBTLoader;
 import com.github.majisyou.plusenchantment.PlusEnchantment;
-import com.github.majisyou.plusenchantment.System.EnchantSystem;
-import com.github.majisyou.plusenchantment.System.ItemBuilder;
-import net.kyori.adventure.text.NBTComponent;
-import org.bukkit.Bukkit;
-import org.bukkit.Material;
-import org.bukkit.NamespacedKey;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
-import org.bukkit.enchantments.Enchantment;
-import org.bukkit.entity.Item;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.Damageable;
 import org.bukkit.inventory.meta.ItemMeta;
-import org.bukkit.metadata.FixedMetadataValue;
-import org.bukkit.metadata.MetadataValue;
-import org.bukkit.persistence.PersistentDataContainer;
-import org.bukkit.plugin.Plugin;
-import org.bukkit.util.io.BukkitObjectInputStream;
-import org.bukkit.util.io.BukkitObjectOutputStream;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.io.ObjectOutputStream;
-import java.util.Base64;
-import java.util.Map;
+import org.jetbrains.annotations.NotNull;
+
 
 public class Cmd_test implements CommandExecutor {
 
@@ -42,10 +21,13 @@ public class Cmd_test implements CommandExecutor {
     @Override
     public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
         if(sender instanceof Player player){
-           ItemStack leftItem = player.getInventory().getItemInMainHand();
-           ItemMeta leftItemMeta = leftItem.getItemMeta();
+            ItemStack leftItem = player.getInventory().getItemInMainHand();
+            ItemMeta leftItemMeta = leftItem.getItemMeta();
+            Damageable leftItemMeta2 = (Damageable) leftItem.getItemMeta();
 
-           player.getWorld().dropItem(player.getLocation(),ItemBuilder.returnTool(leftItem));
+            plugin.getLogger().info(leftItem+"のデータを持ってるよ");
+            plugin.getLogger().info(leftItem.getEnchantments()+"のデータを持ってるよ");
+            plugin.getLogger().info(leftItem.getEnchantments().keySet()+"のデータを持ってるよ");
 
 
 

@@ -9,3 +9,7 @@ commands:
   test:
     description: commandtest用
     usage: 原因不明の失敗
+
+  DebugEnchant:
+    description: debug
+    usage: whhieee

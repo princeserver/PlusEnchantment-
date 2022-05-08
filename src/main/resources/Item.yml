@@ -1,16 +1,134 @@
 Item:
-  BackGrond:
+  BackGround:
     ItemType: WHITE_STAINED_GLASS_PANE
-    DisplayName:
-    CustomModelData: 1
-    Lore:
-      - None
+    CustomModelData: 3410
 
   ChangeNameModeItem:
     ItemType: WHITE_STAINED_GLASS_PANE
-    DisplayName: -アイテム名編集モード-
+    CustomModelData: 3501
+
+  ExclamationMark:
+    ItemType: WHITE_STAINED_GLASS_PANE
+    CustomModelData: 3411
+
+  Plus:
+    ItemType: WHITE_STAINED_GLASS_PANE
+    CustomModelData: 3413
+
+  Minus:
+    ItemType: WHITE_STAINED_GLASS_PANE
+    CustomModelData: 3414
+
+
+  Arrow:
+    ItemType: WHITE_STAINED_GLASS_PANE
+    CustomModelData: 3300
+
+  RedCheck:
+    ItemType: WHITE_STAINED_GLASS_PANE
+    CustomModelData: 3409
+
+  GreenCheck:
+    ItemType: WHITE_STAINED_GLASS_PANE
+    CustomModelData: 3400
+
+  lv:
+    ItemType: WHITE_STAINED_GLASS_PANE
+    CustomModelData: 3202
+
+  number:
+    ItemType: WHITE_STAINED_GLASS_PANE
+    CustomModelData:
+      -1: 3201
+      1: 3011
+      2: 3012
+      3: 3013
+      4: 3014
+      5: 3015
+      6: 3016
+      7: 3017
+      8: 3018
+      9: 3019
+      0: 3010
+
+  BaseEmpty:
+    ItemType: WHITE_STAINED_GLASS_PANE
+    CustomModelData: 3405
+
+  AddEmpty:
+    ItemType: WHITE_STAINED_GLASS_PANE
+    CustomModelData: 3405
+
+  ScrapEmpty:
+    ItemType: WHITE_STAINED_GLASS_PANE
+    CustomModelData: 3405
+
+
+  RemoveEnchantEmpty:
+    ItemType: WHITE_STAINED_GLASS_PANE
+    CustomModelData: 3405
+
+  Failed:
+    ItemType: WHITE_STAINED_GLASS_PANE
+    CustomModelData: 3401
+
+  AddEnchantMode:
+    ItemType: WHITE_STAINED_GLASS_PANE
+    CustomModelData: 3502
+
+  RemoveEnchantMode:
+    ItemType: WHITE_STAINED_GLASS_PANE
+    CustomModelData: 3502
+
+  RepairMode:
+    ItemType: WHITE_STAINED_GLASS_PANE
+    CustomModelData: 3500
+
+  ScrapMode:
+    ItemType: WHITE_STAINED_GLASS_PANE
+    CustomModelData: 3503
+
+  Iron:
+    ItemType: IRON_INGOT
     CustomModelData: 1
-    Lore:
-      - アイテムに名前を付けることができます。
-      - このモードは素手の状態で設置された金床を
-      - /スニークしながら右クリック+GREEN+UNDERLINE/すると開くことができます。
+
+  Gold:
+    ItemType: GOLD_INGOT
+    CustomModelData: 1
+
+  Diamond:
+    ItemType: DIAMOND
+    CustomModelData: 1
+
+  NetherQuartz:
+    ItemType: QUARTZ
+    CustomModelData: 1
+
+  Copper:
+    ItemType: COPPER_INGOT
+    CustomModelData: 1
+
+  Coal:
+    ItemType: COAL
+    CustomModelData: 1
+
+
+  Netherite:
+    ItemType: NETHERITE_SCRAP
+    CustomModelData: 1
+
+  RedStone:
+    ItemType: REDSTONE
+    CustomModelData: 1
+
+  Lapis:
+    ItemType: LAPIS_LAZULI
+    CustomModelData: 1
+
+  Amethyst:
+    ItemType: AMETHYST_SHARD
+    CustomModelData: 1
+
+  Scrap:
+    ItemType: COMMAND_BLOCK
+    CustomModelData: 1
