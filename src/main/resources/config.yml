@@ -283,7 +283,7 @@ Enchantment:
       - BOOK
 
   ARROW_DAMAGE:
-    AddCoefficient: 1
+    AddCoefficient: 25
     MaxLevel: 10
     ConflictEnchant:
       - None
@@ -293,7 +293,7 @@ Enchantment:
       - BOOK
 
   ARROW_FIRE:
-    AddCoefficient: 20
+    AddCoefficient: 400
     MaxLevel: 1
     ConflictEnchant:
       - None
@@ -303,7 +303,7 @@ Enchantment:
       - BOOK
 
   ARROW_INFINITE:
-    AddCoefficient: 30
+    AddCoefficient: 800
     MaxLevel: 1
     ConflictEnchant:
       - None
@@ -313,7 +313,7 @@ Enchantment:
       - BOOK
 
   ARROW_KNOCKBACK:
-    AddCoefficient: 5
+    AddCoefficient: 100
     MaxLevel: 5
     ConflictEnchant:
       - None
@@ -323,7 +323,7 @@ Enchantment:
       - BOOK
 
   BINDING_CURSE:
-    AddCoefficient: 0
+    AddCoefficient: 25
     MaxLevel: 1
     ConflictEnchant:
       - None
@@ -368,7 +368,7 @@ Enchantment:
       - BOOK
 
   CHANNELING:
-    AddCoefficient: 30
+    AddCoefficient: 800
     MaxLevel: 1
     ConflictEnchant:
       - RIPTIDE
@@ -378,7 +378,7 @@ Enchantment:
       - BOOK
 
   DAMAGE_ALL:
-    AddCoefficient: 1
+    AddCoefficient: 25
     MaxLevel: 10
     ConflictEnchant:
       - None
@@ -394,7 +394,7 @@ Enchantment:
       - BOOK
 
   DAMAGE_ARTHROPODS:
-    AddCoefficient: 1
+    AddCoefficient: 25
     MaxLevel: 10
     ConflictEnchant:
       - DAMAGE_UNDEAD
@@ -411,7 +411,7 @@ Enchantment:
       - BOOK
 
   DAMAGE_UNDEAD:
-    AddCoefficient: 1
+    AddCoefficient: 25
     MaxLevel: 10
     ConflictEnchant:
       - DAMAGE_ARTHROPODS
@@ -428,7 +428,7 @@ Enchantment:
       - BOOK
 
   DEPTH_STRIDER:
-    AddCoefficient: 7
+    AddCoefficient: 100
     MaxLevel: 3
     ConflictEnchant:
       - FROST_WALKER
@@ -446,7 +446,7 @@ Enchantment:
       - BOOK
 
   DIG_SPEED:
-    AddCoefficient: 1
+    AddCoefficient: 50
     MaxLevel: 10
     ConflictEnchant:
       - None
@@ -480,7 +480,7 @@ Enchantment:
       - BOOK
 
   FIRE_ASPECT:
-    AddCoefficient: 10
+    AddCoefficient: 75
     MaxLevel: 3
     ConflictEnchant:
       - None
@@ -495,7 +495,7 @@ Enchantment:
       - BOOK
 
   FROST_WALKER:
-    AddCoefficient: 7
+    AddCoefficient: 150
     MaxLevel: 2
     ConflictEnchant:
       - WATER_WALKER
@@ -507,8 +507,9 @@ Enchantment:
       - IRON_BOOTS
       - NETHERITE_BOOTS
       - CHAINMAIL_BOOTS
+
   IMPALING:
-    AddCoefficient: 1
+    AddCoefficient: 25
     MaxLevel: 10
     ConflictEnchant:
       - DAMAGE_UNDEAD
@@ -525,7 +526,7 @@ Enchantment:
       - BOOK
 
   KNOCKBACK:
-    AddCoefficient: 5
+    AddCoefficient: 100
     MaxLevel: 5
     ConflictEnchant:
       - None
@@ -540,7 +541,7 @@ Enchantment:
       - BOOK
 
   LOOT_BONUS_BLOCKS:
-    AddCoefficient: 3
+    AddCoefficient: 75
     MaxLevel: 10
     ConflictEnchant:
       - SILK_TOUCH
@@ -574,7 +575,7 @@ Enchantment:
       - BOOK
 
   LOOT_BONUS_MOBS:
-    AddCoefficient: 3
+    AddCoefficient: 75
     MaxLevel: 10
     ConflictEnchant:
       - None
@@ -590,7 +591,7 @@ Enchantment:
       - BOOK
 
   LOYALTY:
-    AddCoefficient: 1
+    AddCoefficient: 50
     MaxLevel: 10
     ConflictEnchant:
       - RIPTIDE
@@ -600,7 +601,7 @@ Enchantment:
       - BOOK
 
   LUCK:
-    AddCoefficient: 3
+    AddCoefficient: 75
     MaxLevel: 10
     ConflictEnchant:
       - None
@@ -610,7 +611,7 @@ Enchantment:
       - BOOK
 
   LURE:
-    AddCoefficient: 4
+    AddCoefficient: 100
     MaxLevel: 5
     ConflictEnchant:
       - None
@@ -620,7 +621,7 @@ Enchantment:
       - BOOK
 
   MENDING:
-    AddCoefficient: 10000
+    AddCoefficient: 100000
     MaxLevel: 1
     ConflictEnchant:
       - DURABILITY
@@ -628,7 +629,7 @@ Enchantment:
       - None
 
   MULTISHOT:
-    AddCoefficient: 30
+    AddCoefficient: 200
     MaxLevel: 1
     ConflictEnchant:
       - PIERCING
@@ -638,7 +639,7 @@ Enchantment:
       - BOOK
 
   OXYGEN:
-    AddCoefficient: 10
+    AddCoefficient: 25
     MaxLevel: 1
     ConflictEnchant:
       - None
@@ -652,9 +653,10 @@ Enchantment:
       - CHAINMAIL_HELMET
       - TURTLE_HELMET
       - BOOK
+      - TURTLE_HELMET
 
   PIERCING:
-    AddCoefficient: 1
+    AddCoefficient: 25
     MaxLevel: 10
     ConflictEnchant:
       - MULTISHOT
@@ -664,7 +666,7 @@ Enchantment:
       - BOOK
 
   PROTECTION_ENVIRONMENTAL:
-    AddCoefficient: 1
+    AddCoefficient: 25
     MaxLevel: 10
     ConflictEnchant:
       - none
@@ -702,9 +704,10 @@ Enchantment:
       - NETHERITE_BOOTS
       - CHAINMAIL_BOOTS
       - BOOK
+      - TURTLE_HELMET
 
   PROTECTION_EXPLOSIONS:
-    AddCoefficient: 1
+    AddCoefficient: 25
     MaxLevel: 10
     ConflictEnchant:
       - PROTECTION_FALL
@@ -744,9 +747,10 @@ Enchantment:
       - NETHERITE_BOOTS
       - CHAINMAIL_BOOTS
       - BOOK
+      - TURTLE_HELMET
 
   PROTECTION_FALL:
-    AddCoefficient: 1
+    AddCoefficient: 25
     MaxLevel: 10
     ConflictEnchant:
       - PROTECTION_EXPLOSIONS
@@ -764,9 +768,10 @@ Enchantment:
       - GOLDEN_HORSE_ARMOR
       - DIAMOND_HORSE_ARMOR
       - BOOK
+      - TURTLE_HELMET
 
   PROTECTION_FIRE:
-    AddCoefficient: 1
+    AddCoefficient: 25
     MaxLevel: 10
     ConflictEnchant:
       - PROTECTION_EXPLOSIONS
@@ -806,9 +811,10 @@ Enchantment:
       - NETHERITE_BOOTS
       - CHAINMAIL_BOOTS
       - BOOK
+      - TURTLE_HELMET
 
   PROTECTION_PROJECTILE:
-    AddCoefficient: 1
+    AddCoefficient: 25
     MaxLevel: 10
     ConflictEnchant:
       - PROTECTION_EXPLOSIONS
@@ -848,9 +854,10 @@ Enchantment:
       - NETHERITE_BOOTS
       - CHAINMAIL_BOOTS
       - BOOK
+      - TURTLE_HELMET
 
   QUICK_CHARGE:
-    AddCoefficient: 4
+    AddCoefficient: 150
     MaxLevel: 5
     ConflictEnchant:
       - None
@@ -860,7 +867,7 @@ Enchantment:
       - BOOK
 
   RIOTIDE:
-    AddCoefficient: 4
+    AddCoefficient: 200
     MaxLevel: 5
     ConflictEnchant:
       - LOYALTY
@@ -871,7 +878,7 @@ Enchantment:
       - BOOK
 
   SILK_TOUCH:
-    AddCoefficient: 20
+    AddCoefficient: 400
     MaxLevel: 1
     ConflictEnchant:
       - LOOT_BONUS_BLOCKS
@@ -904,7 +911,7 @@ Enchantment:
       - BOOK
 
   SOUL_SPEED:
-    AddCoefficient: 5
+    AddCoefficient: 100
     MaxLevel: 5
     ConflictEnchant:
       - None
@@ -919,7 +926,7 @@ Enchantment:
       - BOOK
 
   SWEEPING_EDGE:
-    AddCoefficient: 1
+    AddCoefficient: 25
     MaxLevel: 10
     ConflictEnchant:
       - None
@@ -934,7 +941,7 @@ Enchantment:
       - BOOK
 
   THORNS:
-    AddCoefficient: 5
+    AddCoefficient: 150
     MaxLevel: 10
     ConflictEnchant:
       - None
@@ -974,10 +981,11 @@ Enchantment:
       - IRON_BOOTS
       - NETHERITE_BOOTS
       - CHAINMAIL_BOOTS
+      - TURTLE_HELMET
       - BOOK
 
   VANISHING_CURSE:
-    AddCoefficient: 0
+    AddCoefficient: 25
     MaxLevel: 1
     ConflictEnchant:
       - None
@@ -1058,19 +1066,19 @@ Enchantment:
       - BOOK
 
   WATER_WORKER:
-    AddCoefficient: 7
-    MaxLevel: 3
+    AddCoefficient: 200
+    MaxLevel: 1
     ConflictEnchant:
-      - FROST_WALKER
+      - None
     PossibleItem:
-      - ENCHANTED_BOOK
-      - LEATHER_BOOTS
-      - DIAMOND_BOOTS
-      - GOLDEN_BOOTS
-      - IRON_BOOTS
-      - NETHERITE_BOOTS
-      - CHAINMAIL_BOOTS
+      - LEATHER_HELMET
+      - DIAMOND_HELMET
+      - GOLDEN_HELMET
+      - IRON_HELMET
+      - NETHERITE_HELMET
+      - CHAINMAIL_HELMET
       - BOOK
+      - TURTLE_HELMET
 
 
 

@@ -35,6 +35,7 @@ public final class PlusEnchantment extends JavaPlugin {
         new PlayerRightClick(this);
         new CloseInventory(this);
 
+
 //        //customEnchant
 //        CustomEnchants.register();
 
