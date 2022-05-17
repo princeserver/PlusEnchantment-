@@ -456,16 +456,20 @@ public class GuiMaster {
             ItemStack leftItem = inventory.getItem(3);
             ItemStack rightItem = inventory.getItem(5);
             ItemStack AddItem = event.getCursor();
-            if(!(event.getClickedInventory().getType().equals(InventoryType.PLAYER))){
+            if(!(event.getClickedInventory().getType().equals(InventoryType.PLAYER)) && event.getClick().equals(ClickType.LEFT)){
                 int SlotNumber = event.getSlot();
                 if(SlotNumber==3){
                     leftItem = AddItem;
                 }
                 if(SlotNumber==5){
-                    rightItem = AddItem;
+                    if(AddItem.getType().equals(Material.AIR)){
+                        rightItem = GuiItem.RemoveEnchantEmpty();
+                    }else {
+                        rightItem = AddItem;
+                    }
                 }
             }
-            if(EnchantSystem.EnchantItemJudge(leftItem.getType().toString()) && rightItem.getType().equals(Material.ENCHANTED_BOOK)){
+            if(EnchantSystem.EnchantItemJudge(leftItem.getType().name()) && rightItem.getType().equals(Material.ENCHANTED_BOOK)){
                 ItemStack resultItem = EnchantSystem.RemoveEnchantItem(leftItem,rightItem);
                 Integer NeedEXP = 1;
                 if(!resultItem.getType().equals(Material.AIR)){
@@ -475,9 +479,17 @@ public class GuiMaster {
                     NeedEXPInventory(0,inventory,(Player) event.getWhoClicked());
                     inventory.setItem(7,GuiItem.Failed());
                 }
-            }else{
-                NeedEXPInventory(0,inventory,(Player) event.getWhoClicked());
-                inventory.setItem(7,GuiItem.Failed());
+            }else if(EnchantSystem.EnchantItemJudge(leftItem.getType().name()) && (rightItem.getType().equals(Material.WHITE_STAINED_GLASS_PANE))){
+                if(rightItem.getItemMeta().hasCustomModelData()){
+                    inventory.setItem(7,EnchantSystem.RemoveAllEnchantItem(leftItem));
+                    NeedEXPInventory(1,inventory,(Player) event.getWhoClicked());
+                }else {
+                    inventory.setItem(7, GuiItem.Failed());
+                    NeedEXPInventory(0, inventory, (Player) event.getWhoClicked());
+                }
+            }else {
+                inventory.setItem(7, GuiItem.Failed());
+                NeedEXPInventory(0, inventory, (Player) event.getWhoClicked());
             }
         }else {
             plugin.getLogger().info(inventory.getSize()+"の大きさ");
