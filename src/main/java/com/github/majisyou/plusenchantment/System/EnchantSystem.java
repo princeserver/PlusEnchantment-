@@ -211,6 +211,7 @@ public class EnchantSystem {
                 if(AddCoefficient==0 && !(enchantment.isCursed()))
                     plugin.getLogger().info(enchantment.getName()+"のAddCoefficientが設定されてないかも");
             }
+            NeedExp /= 10;
         }
         return NeedExp;
     }
@@ -262,4 +263,36 @@ public class EnchantSystem {
         }
         return resultItem;
     }
+
+    public static ItemStack RemoveAllEnchantItem(ItemStack leftItem){
+        ItemStack resultItem = leftItem.clone();
+        Set<Enchantment> leftEnchant;
+        if(leftItem.getType().equals(Material.ENCHANTED_BOOK)){
+            EnchantmentStorageMeta resultMeta = (EnchantmentStorageMeta) leftItem.getItemMeta();
+            leftEnchant = resultMeta.getStoredEnchants().keySet();
+            for(Enchantment enchantment : leftEnchant){
+                if(!enchantment.isCursed()){
+                    resultMeta.removeStoredEnchant(enchantment);
+                }
+                if(resultMeta.getStoredEnchants().keySet().size()==0){
+                    return new ItemStack(Material.BOOK,1);
+                }
+            }
+            resultItem.setItemMeta(resultMeta);
+        }else {
+            ItemMeta resultMeta = resultItem.getItemMeta();
+            leftEnchant = leftItem.getEnchantments().keySet();
+            for(Enchantment enchantment : leftEnchant){
+                if(!enchantment.isCursed()){
+                    resultMeta.removeEnchant(enchantment);
+                }
+            }
+            resultItem.setItemMeta(resultMeta);
+        }
+        if(leftItem.getAmount()>1 || leftEnchant.size()==0 || leftItem.equals(resultItem)){
+            return GuiItem.Failed();
+        }
+        return resultItem;
+    }
+
 }
