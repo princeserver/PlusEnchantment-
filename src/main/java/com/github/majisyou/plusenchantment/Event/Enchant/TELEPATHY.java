@@ -3,6 +3,7 @@ package com.github.majisyou.plusenchantment.Event.Enchant;
 import com.github.majisyou.plusenchantment.PlusEnchantment;
 import com.github.majisyou.plusenchantment.System.CustomEnchants;
 import org.bukkit.GameMode;
+import org.bukkit.Material;
 import org.bukkit.block.Container;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -20,7 +21,7 @@ public class TELEPATHY implements Listener {
 
     @EventHandler
     public static void onBlockBreak(BlockBreakEvent event){
-        if(event.getPlayer().getInventory().getItemInMainHand()==null)
+        if(event.getPlayer().getInventory().getItemInMainHand().getType().equals(Material.AIR))
             return;
         if(!event.getPlayer().getInventory().getItemInMainHand().hasItemMeta())
             return;
