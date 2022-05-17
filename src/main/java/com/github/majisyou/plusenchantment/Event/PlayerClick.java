@@ -16,6 +16,8 @@ import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.inventory.InventoryType;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
+import org.bukkit.inventory.meta.Repairable;
 
 public class PlayerClick implements Listener {
 
@@ -56,6 +58,17 @@ public class PlayerClick implements Listener {
 
                     if(EnchantSystem.EnchantItemJudge(ClickedItem.getType().toString())){
                         if(!event.getClickedInventory().getType().equals(InventoryType.PLAYER)){
+                            if(event.getCursor()!=null && !event.getCursor().getType().equals(Material.AIR)){
+                                if(!EnchantSystem.EnchantItemJudge(event.getCursor().getType().name())){
+                                    event.setCancelled(true);
+                                    return;
+                                }else {
+                                    if(event.getSlot()==3 || event.getSlot()==5){
+                                        SoundSystem.ClickSound((Player) event.getWhoClicked());
+                                        return;
+                                    }
+                                }
+                            }
                             if(event.getSlot()==3){
                                 event.setCancelled(true);
                                 event.setCurrentItem(GuiItem.BaseEmpty());
@@ -72,6 +85,10 @@ public class PlayerClick implements Listener {
                             }
 
                             if(event.getSlot()==7){
+                                if(event.getCursor()!=null && !event.getCursor().getType().equals(Material.AIR)){
+                                    event.setCancelled(true);
+                                    return;
+                                }
                                 if(((Player) event.getWhoClicked()).getLevel() < EnchantSystem.CalculateEnchant(event.getClickedInventory().getItem(7))){
                                     event.setCancelled(true);
                                     SoundSystem.FailedSound((Player) event.getWhoClicked());
@@ -182,31 +199,30 @@ public class PlayerClick implements Listener {
             if(!(ClickedItem == null)) {
                 if(!(event.getClickedInventory().getType().equals(InventoryType.PLAYER))){
                     if(event.getSlot()==9){
+                        event.setCancelled(true);
                         GuiMaster.OpenRepairMode((Player) event.getWhoClicked());
                         SoundSystem.OpenSound((Player) event.getWhoClicked());
                         return;
                     }
                     if(event.getSlot()==18){
+                        event.setCancelled(true);
                         GuiMaster.OpenScrapMode((Player) event.getWhoClicked());
                         SoundSystem.OpenSound((Player) event.getWhoClicked());
                         return;
                     }
                 }
+
                 if (event.getClick().equals(ClickType.LEFT)) {
                     if (!event.getClickedInventory().getType().equals(InventoryType.PLAYER)) {
                         Inventory inventory = event.getClickedInventory();
                         GuiMaster.RemoveEnchantInventory(inventory,event);
-                        if(!(event.getClick().equals(ClickType.LEFT)||event.getClick().equals(ClickType.SHIFT_LEFT))){
-                            event.setCancelled(true);
-                            return;
-                        }
                     }
 
                     if (ClickedItem.getType().equals(Material.WHITE_STAINED_GLASS_PANE)) {
                         if (ClickedItem.getItemMeta().hasCustomModelData()) {
                             if (ClickedItem.getItemMeta().getDisplayName().equals(ChatColor.WHITE+"元のアイテムスロット")) {
                                 if (!(event.getCursor() == null)) {
-                                    if (EnchantSystem.EnchantItemJudge(event.getCursor().getType().toString())) {
+                                    if (EnchantSystem.EnchantItemJudge(event.getCursor().getType().name())) {
                                         event.setCurrentItem(AIR);
                                         SoundSystem.ClickSound((Player) event.getWhoClicked());
                                         return;
@@ -230,6 +246,23 @@ public class PlayerClick implements Listener {
                     if(!(ClickedItem.getType().equals(Material.AIR))){
                         if(EnchantSystem.EnchantItemJudge(ClickedItem.getType().toString())) {
                             if (!event.getClickedInventory().getType().equals(InventoryType.PLAYER)) {
+                                if(event.getCursor()!=null && !event.getCursor().getType().equals(Material.AIR)){
+                                    if(!(EnchantSystem.EnchantItemJudge(event.getCursor().getType().name()))){
+                                        event.setCancelled(true);
+                                    }else {
+                                        if(event.getSlot()==3){
+                                            SoundSystem.ClickSound((Player) event.getWhoClicked());
+                                            return;
+                                        }
+                                        if(event.getSlot()==5 && event.getCursor().getType().equals(Material.ENCHANTED_BOOK)){
+                                            SoundSystem.ClickSound((Player) event.getWhoClicked());
+                                        }else {
+                                            event.setCancelled(true);
+                                        }
+                                    }
+                                    return;
+                                }
+
                                 if (event.getSlot() == 3) {
                                     event.setCancelled(true);
                                     event.setCurrentItem(GuiItem.BaseEmpty());
@@ -242,7 +275,6 @@ public class PlayerClick implements Listener {
                                         event.setCancelled(true);
                                         event.setCurrentItem(GuiItem.RemoveEnchantEmpty());
                                         event.setCursor(ClickedItem);
-
                                     }
                                     if(!(event.getCursor().getType().equals(Material.ENCHANTED_BOOK))){
                                         event.setCancelled(true);
@@ -252,6 +284,11 @@ public class PlayerClick implements Listener {
                                 }
 
                                 if (event.getSlot() == 7) {
+                                    if(event.getCursor()!=null && !event.getCursor().getType().equals(Material.AIR)){
+                                        event.setCancelled(true);
+                                        return;
+                                    }
+
                                     if(((Player) event.getWhoClicked()).getLevel() < 1){
                                         event.setCancelled(true);
                                         SoundSystem.FailedSound((Player) event.getWhoClicked());
@@ -320,7 +357,7 @@ public class PlayerClick implements Listener {
                                 }
                                 if(event.getSlot()==5){
                                     event.setCancelled(true);
-                                    event.setCurrentItem(GuiItem.AddEmpty());
+                                    event.setCurrentItem(GuiItem.RemoveEnchantEmpty());
                                     event.getWhoClicked().getInventory().addItem(ClickedItem);
                                     GuiMaster.RemoveEnchantInventory(event.getInventory(),event);
                                     SoundSystem.ClickSound((Player) event.getWhoClicked());
@@ -383,6 +420,7 @@ public class PlayerClick implements Listener {
                     if (!event.getClickedInventory().getType().equals(InventoryType.PLAYER)) {
                         Inventory inventory = event.getClickedInventory();
                         GuiMaster.RepairItemInventory(inventory,event);
+
                     }
 
 
@@ -417,6 +455,18 @@ public class PlayerClick implements Listener {
                     if(!(ClickedItem.getType().equals(Material.AIR))){
                         if(EnchantSystem.EnchantItemJudge(ClickedItem.getType().toString())||ClickedItem.getItemMeta().getDisplayName().equals(ChatColor.WHITE+"スクラップ")||EnchantSystem.BrokenItemIs(ClickedItem)) {
                             if (!event.getClickedInventory().getType().equals(InventoryType.PLAYER)) {
+                                if(event.getCursor()!=null && !event.getCursor().getType().equals(Material.AIR)){
+                                    if(!(EnchantSystem.EnchantItemJudge(event.getCursor().getType().name()))){
+                                        event.setCancelled(true);
+                                        return;
+                                    }else {
+                                        if(event.getSlot()==3){
+                                            SoundSystem.ClickSound((Player) event.getWhoClicked());
+                                            return;
+                                        }
+                                    }
+                                }
+
                                 if (event.getSlot() == 3) {
                                     event.setCancelled(true);
                                     event.setCurrentItem(GuiItem.BaseEmpty());
@@ -438,6 +488,11 @@ public class PlayerClick implements Listener {
                                 }
 
                                 if (event.getSlot() == 7) {
+                                    if(event.getCursor()!=null && !event.getCursor().getType().equals(Material.AIR)){
+                                        event.setCancelled(true);
+                                        return;
+                                    }
+
                                     if(((Player) event.getWhoClicked()).getLevel() < EnchantSystem.CalculateRepair(EnchantSystem.ScrapCost(event.getInventory().getItem(3),event.getInventory().getItem(5)))){
                                         event.setCancelled(true);
                                         SoundSystem.FailedSound((Player) event.getWhoClicked());
@@ -636,41 +691,27 @@ public class PlayerClick implements Listener {
             return;
         }
 
-        if(!(event.getCurrentItem()==null)){
-            if(event.getInventory().getType().equals(InventoryType.ANVIL)){
-
-                if(!(event.getClick().equals(ClickType.LEFT))&&!(event.getInventory().getItem(0)==null)){
-                    event.setCancelled(true);
-                    return;
-                }
-
-                if (event.getCurrentItem().getItemMeta().getDisplayName().equals(ChatColor.WHITE+"スクラップ")){
-                    event.setCancelled(true);
-                    return;
-                }
-
-                if(event.getClickedInventory().getType().equals(InventoryType.ANVIL)){
-                    if(event.getSlot()==1){
-                        event.setCancelled(true);
+        if(event.getInventory().getType().equals(InventoryType.ANVIL)){
+            if(event.getClick().equals(ClickType.SHIFT_LEFT)){
+                if(event.getCurrentItem()!=null){
+                    if(event.getClickedInventory().getType().equals(InventoryType.ANVIL)){
+                        return;
+                    }
+                    if(event.getInventory().getItem(0) == null ||event.getInventory().getItem(0).getType().equals(Material.AIR)){
+                        if(!event.getCurrentItem().getType().equals(Material.AIR)){
+                            ItemStack item = event.getCurrentItem();
+                            ItemMeta itemMeta = item.getItemMeta();
+                            if(itemMeta instanceof Repairable repairable){
+                                repairable.setRepairCost(0);
+                                item.setItemMeta(repairable);
+                            }
+                        }
                         return;
                     }
 
-                    if(event.getSlot()==2){
-                        event.setCancelled(false);
-                        return;
-                    }
-                    if(event.getSlot()==0){
-                        event.setCancelled(false);
-                        return;
-                    }
-
-                    if(!(event.getInventory().getItem(1)==null)){
-                        event.getInventory().clear(1);
-                    }
-
                 }
-
             }
+            event.setCancelled(true);
         }
     }
 }
