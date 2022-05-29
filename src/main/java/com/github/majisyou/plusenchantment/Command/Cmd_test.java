@@ -1,6 +1,8 @@
 package com.github.majisyou.plusenchantment.Command;
 
+import com.github.majisyou.plusenchantment.Config.EnchantmentManager;
 import com.github.majisyou.plusenchantment.PlusEnchantment;
+import com.github.majisyou.plusenchantment.System.EnchantSystem;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -21,13 +23,9 @@ public class Cmd_test implements CommandExecutor {
     @Override
     public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
         if(sender instanceof Player player){
-            ItemStack leftItem = player.getInventory().getItemInMainHand();
-            ItemMeta leftItemMeta = leftItem.getItemMeta();
-            Damageable leftItemMeta2 = (Damageable) leftItem.getItemMeta();
 
-            plugin.getLogger().info(leftItem+"のデータを持ってるよ");
-            plugin.getLogger().info(leftItem.getEnchantments()+"のデータを持ってるよ");
-            plugin.getLogger().info(leftItem.getEnchantments().keySet()+"のデータを持ってるよ");
+            player.sendMessage(EnchantSystem.CureScrapDurability(player.getInventory().getItemInMainHand())+"の値");
+            player.sendMessage(EnchantmentManager.getScrapCoefficient(player.getInventory().getItemInMainHand().getType().name())+"の値");
 
 
 
