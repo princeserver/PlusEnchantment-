@@ -59,6 +59,22 @@ public class CloseInventory implements Listener {
                 }
             }
 
+            if(rightItem.getType().equals(Material.CHAIN_COMMAND_BLOCK)){
+                if(event.getPlayer().getInventory().firstEmpty()==-1){
+                    event.getPlayer().getWorld().dropItem(event.getPlayer().getLocation(),rightItem);
+                }else {
+                    event.getPlayer().getInventory().addItem(rightItem);
+                }
+            }
+
+            if(leftItem.getType().equals(Material.CHAIN_COMMAND_BLOCK)){
+                if(event.getPlayer().getInventory().firstEmpty()==-1){
+                    event.getPlayer().getWorld().dropItem(event.getPlayer().getLocation(),leftItem);
+                }else {
+                    event.getPlayer().getInventory().addItem(leftItem);
+                }
+            }
+
         }
 
         if(event.getInventory().getType().equals(InventoryType.ANVIL)){

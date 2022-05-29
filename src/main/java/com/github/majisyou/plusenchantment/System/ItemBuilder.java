@@ -2,17 +2,22 @@ package com.github.majisyou.plusenchantment.System;
 
 import com.github.majisyou.plusenchantment.NBT.ItemNBTLoader;
 import com.github.majisyou.plusenchantment.PlusEnchantment;
+import org.bukkit.ChatColor;
 import org.bukkit.Material;
+import org.bukkit.NamespacedKey;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
+import org.bukkit.persistence.PersistentDataType;
 import org.bukkit.util.io.BukkitObjectInputStream;
 import org.bukkit.util.io.BukkitObjectOutputStream;
 
+import javax.naming.Name;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.time.ZonedDateTime;
 import java.util.Base64;
 import java.util.HashMap;
 import java.util.Map;
@@ -22,11 +27,14 @@ public class ItemBuilder {
     private static final PlusEnchantment plugin = PlusEnchantment.getInstance();
 
     public static ItemStack BrokenItem(ItemStack item){
-        ItemStack BrokenItem = new ItemStack(Material.COMMAND_BLOCK,1);
+        ItemStack BrokenItem = new ItemStack(Material.CHAIN_COMMAND_BLOCK,1);
         ItemMeta BrokenItemMeta = BrokenItem.getItemMeta();
-        BrokenItemMeta.addEnchant(Enchantment.DURABILITY,1,true);
-        BrokenItemMeta.addItemFlags(ItemFlag.HIDE_ENCHANTS);
         BrokenItemMeta.setCustomModelData(1);
+        String name = ChatColor.WHITE +"壊れたアイテム("+item.getItemMeta().getDisplayName()+"("+item.getType().name()+"))";
+        BrokenItemMeta.setDisplayName(name);
+        NamespacedKey key = new NamespacedKey(plugin,"time");
+        BrokenItemMeta.getPersistentDataContainer().set(key, PersistentDataType.STRING,ZonedDateTime.now().toString());
+        BrokenItem.setItemMeta(BrokenItemMeta);
         ItemNBTLoader.ItemNBTLoad(BrokenItem);
         ByteArrayOutputStream io = new ByteArrayOutputStream();
         String encodeObject;
@@ -39,8 +47,8 @@ public class ItemBuilder {
             ItemNBTLoader.writeString("BrokenItem",encodeObject);
             return ItemNBTLoader.getItemStack();
         } catch (IOException e) {
-            plugin.getLogger().info(e.toString());
-            plugin.getLogger().info("アイテムのシリアライズに失敗");
+            plugin.getLogger().info("(PE)"+e);
+            plugin.getLogger().info("(PE)"+"アイテムのシリアライズに失敗");
             return null;
         }
     }
@@ -55,12 +63,12 @@ public class ItemBuilder {
             return (ItemStack) is.readObject();
         } catch (IOException | ClassNotFoundException e) {
             if(ItemNBTLoader.hasString("BrokenItem")){
-                plugin.getLogger().info("エンコードしたやつが間違ってる");
+                plugin.getLogger().info("(PE)"+"エンコードしたやつが間違ってる");
             }else {
-                plugin.getLogger().info("そもそもこのアイテムのNBTにエンコードした文字列が入っていない");
+                plugin.getLogger().info("(PE)"+"そもそもこのアイテムのNBTにエンコードした文字列が入っていない");
             }
             plugin.getLogger().info(e.toString());
-            plugin.getLogger().info("アイテムのデコードに失敗した");
+            plugin.getLogger().info("(PE)"+"アイテムのデコードに失敗した");
             return null;
         }
     }
