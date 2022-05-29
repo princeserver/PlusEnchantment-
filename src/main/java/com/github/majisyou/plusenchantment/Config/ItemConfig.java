@@ -14,4 +14,8 @@ public class ItemConfig {
         return config.getInt("Item.number.CustomModelData."+number);
     }
 
+    public static void reloadConfig(){
+        config = new CustomConfig(plugin,"Item.yml").getConfig();
+    }
+
 }
