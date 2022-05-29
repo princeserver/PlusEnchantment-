@@ -1,5 +1,6 @@
 package com.github.majisyou.plusenchantment.Command;
 
+import com.github.majisyou.plusenchantment.Config.EnchantmentManager;
 import com.github.majisyou.plusenchantment.PlusEnchantment;
 import com.github.majisyou.plusenchantment.System.CustomEnchants;
 import org.bukkit.ChatColor;
@@ -22,23 +23,28 @@ public class Cmd_DebugEnchant implements CommandExecutor {
 
     @Override
     public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
-        if(sender instanceof Player player){
-            ItemStack item = new ItemStack(Material.DIAMOND_PICKAXE);
-            item.addUnsafeEnchantment(CustomEnchants.TELEPATHY,1);
-            item.addUnsafeEnchantment(Enchantment.DIG_SPEED,100);
-            List<String> lore = new ArrayList<>();
-            lore.add(ChatColor.GRAY+"Telepathy I");
-            ItemMeta itemMeta = item.getItemMeta();
-            if(itemMeta.hasLore())
-                for (String loreContain : itemMeta.getLore())
-                    lore.add(loreContain);
-            itemMeta.setLore(lore);
-            item.setItemMeta(itemMeta);
 
-            player.getInventory().addItem(item);
-            return true;
+        Player player = (Player) sender;
+        sender.sendMessage(player.getInventory().getItemInMainHand().getType().name()+EnchantmentManager.getScrapCoefficient(player.getInventory().getItemInMainHand().getType().name())+"の値");
 
-        }
+//
+//        if(sender instanceof Player player){
+//            ItemStack item = new ItemStack(Material.DIAMOND_PICKAXE);
+//            item.addUnsafeEnchantment(CustomEnchants.TELEPATHY,1);
+//            item.addUnsafeEnchantment(Enchantment.DIG_SPEED,100);
+//            List<String> lore = new ArrayList<>();
+//            lore.add(ChatColor.GRAY+"Telepathy I");
+//            ItemMeta itemMeta = item.getItemMeta();
+//            if(itemMeta.hasLore())
+//                for (String loreContain : itemMeta.getLore())
+//                    lore.add(loreContain);
+//            itemMeta.setLore(lore);
+//            item.setItemMeta(itemMeta);
+//
+//            player.getInventory().addItem(item);
+//            return true;
+//
+//        }
         return true;
     }
 }
