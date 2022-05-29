@@ -38,7 +38,7 @@ public class CustomConfig {
         if(!configFile.exists()){
             //コンフィグファイルが存在するならsaveResourceでファイルを保存
             plugin.saveResource(file,false);
-            plugin.getLogger().info(file+"がなかったから"+file+"を作成したよ");
+            plugin.getLogger().info("(PE)"+file+"がなかったから"+file+"を作成したよ");
         }
     }
 
@@ -46,7 +46,7 @@ public class CustomConfig {
         if(!configFile.exists()){
             //Files.createFileには絶対的なPathが必要ということでconfigFileの絶対Pathの作成
             Files.createFile(Path.of(configFile.getAbsolutePath()));
-            plugin.getLogger().info(file+"がなかったから"+file+"を作成したよ");
+            plugin.getLogger().info("(PE)"+file+"がなかったから"+file+"を作成したよ");
         }
     }
 
@@ -75,7 +75,7 @@ public class CustomConfig {
         try {
             getConfig().save(configFile);
         } catch(IOException ex){
-            plugin.getLogger().log(Level.SEVERE,"Could not save config to" + configFile, ex);
+            plugin.getLogger().log(Level.SEVERE,"(PE)"+"Could not save config to" + configFile, ex);
         }
     }
 
