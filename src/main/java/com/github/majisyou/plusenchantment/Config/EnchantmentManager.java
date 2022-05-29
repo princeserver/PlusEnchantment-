@@ -51,4 +51,8 @@ public class EnchantmentManager {
         ScrapCoefficient = config.getInt("ScrapRepairRate."+ItemType);
         return ScrapCoefficient;
     }
+
+    public static void reloadConfig(){
+        config = plugin.getConfig();
+    }
 }
