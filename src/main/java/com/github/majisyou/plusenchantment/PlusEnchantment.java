@@ -1,6 +1,8 @@
 package com.github.majisyou.plusenchantment;
 
+import com.github.majisyou.plusenchantment.Command.Cmd_ChangeRedshirt;
 import com.github.majisyou.plusenchantment.Command.Cmd_DebugEnchant;
+import com.github.majisyou.plusenchantment.Command.Cmd_reloadConfig;
 import com.github.majisyou.plusenchantment.Command.Cmd_test;
 import com.github.majisyou.plusenchantment.Config.CustomConfig;
 import com.github.majisyou.plusenchantment.Event.*;
@@ -21,8 +23,10 @@ public final class PlusEnchantment extends JavaPlugin {
         // Plugin startup logic
 
         //commands
-        new Cmd_test(this);
-        new Cmd_DebugEnchant(this);
+//        new Cmd_test(this);
+//        new Cmd_DebugEnchant(this);
+        new Cmd_reloadConfig(this);
+        new Cmd_ChangeRedshirt(this);
 
         //Config系の設定
         saveDefaultConfig();

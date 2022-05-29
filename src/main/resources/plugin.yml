@@ -9,7 +9,19 @@ commands:
   test:
     description: commandtest用
     usage: 原因不明の失敗
+    permission: PE.OP
 
   DebugEnchant:
     description: debug
     usage: whhieee
+    permission: PE.OP
+
+  PlusEnchant_reloadConfig:
+    description: config-reload
+    usage: whiiii
+    permission: PE.OP
+
+  ChangeItem:
+    description: redshirt
+    usage: コマンド失敗
+    permission: PE.user

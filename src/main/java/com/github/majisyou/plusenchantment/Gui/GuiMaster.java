@@ -8,6 +8,7 @@ import com.github.majisyou.plusenchantment.System.ItemBuilder;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
+import org.bukkit.NamespacedKey;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.ClickType;
@@ -288,7 +289,24 @@ public class GuiMaster {
                     rightItem = AddItem;
                 }
             }
+
             if(EnchantSystem.EnchantItemJudge(leftItem.getType().toString()) && EnchantSystem.EnchantItemJudge(rightItem.getType().toString())){
+                for (NamespacedKey key: leftItem.getItemMeta().getPersistentDataContainer().getKeys()){
+                    if(key.getNamespace().equals("growthsurvival")){
+                        if(EnchantSystem.ChangeRedShirt(leftItem)!=null){
+                            leftItem = EnchantSystem.ChangeRedShirt(leftItem);
+                            break;
+                        }
+                    }
+                }
+                for (NamespacedKey key: rightItem.getItemMeta().getPersistentDataContainer().getKeys()){
+                    if(key.getNamespace().equals("growthsurvival")){
+                        if(EnchantSystem.ChangeRedShirt(rightItem)!=null){
+                            rightItem = EnchantSystem.ChangeRedShirt(rightItem);
+                            break;
+                        }
+                    }
+                }
                 if(leftItem.getType().equals(rightItem.getType()) || rightItem.getType().equals(Material.ENCHANTED_BOOK)){
                     ItemStack resultItem = EnchantSystem.AddItem(leftItem,rightItem);
                     Integer NeedEXP = EnchantSystem.CalculateEnchant(resultItem);
@@ -311,8 +329,8 @@ public class GuiMaster {
                 NeedEXPInventory(0,inventory,(Player) event.getWhoClicked());
             }
         }else {
-            plugin.getLogger().info(inventory.getSize()+"の大きさ");
-            plugin.getLogger().info("インベントリがエンチャント合成モードでは無い");
+            plugin.getLogger().info("(PE)"+inventory.getSize()+"の大きさ");
+            plugin.getLogger().info("(PE)"+"インベントリがエンチャント合成モードでは無い");
         }
     }
 
@@ -416,18 +434,31 @@ public class GuiMaster {
                 }
             }
             if(!(scrap==null||scrap.getType().equals(Material.AIR))){
+                if(scrap.getType().equals(Material.CHAIN_COMMAND_BLOCK)){
+                    NeedEXPInventory(0,inventory,(Player) event.getWhoClicked());
+                    inventory.setItem(7,GuiItem.Failed());
+                    return;
+                }
                 if(scrap.getItemMeta().getDisplayName().equals(ChatColor.WHITE+"スクラップ")){
                     if(EnchantSystem.EnchantItemJudge(leftItem.getType().toString()) && !leftItem.getType().equals(Material.ENCHANTED_BOOK)){
+                        for (NamespacedKey key: leftItem.getItemMeta().getPersistentDataContainer().getKeys()){
+                            if(key.getNamespace().equals("growthsurvival")){
+                                if(EnchantSystem.ChangeRedShirt(leftItem)!=null){
+                                    leftItem = EnchantSystem.ChangeRedShirt(leftItem);
+                                    break;
+                                }
+                            }
+                        }
                         ItemStack resultItem = EnchantSystem.RepairItem(leftItem,scrap);
                         inventory.setItem(7,resultItem);
                         Integer NeedEXP = EnchantSystem.CalculateRepair(EnchantSystem.ScrapCost(leftItem,scrap));
                         NeedEXPInventory(NeedEXP,inventory,(Player) event.getWhoClicked());
-                    }else if(leftItem.getType().equals(Material.COMMAND_BLOCK)){
+                    }else if(leftItem.getType().equals(Material.CHAIN_COMMAND_BLOCK)){
                         if (EnchantSystem.BrokenItemIs(leftItem)) {
                             ItemStack resultItem = ItemBuilder.returnTool(leftItem);
+                            Integer NeedEXP = EnchantSystem.CalculateRepair(EnchantSystem.ScrapCost(resultItem,scrap));
                             resultItem = EnchantSystem.RepairItem(resultItem,scrap);
                             inventory.setItem(7,resultItem);
-                            Integer NeedEXP = EnchantSystem.CalculateRepair(EnchantSystem.ScrapCost(leftItem,scrap));
                             NeedEXPInventory(NeedEXP,inventory,(Player) event.getWhoClicked());
                         }else {
                             NeedEXPInventory(0,inventory,(Player) event.getWhoClicked());
@@ -446,8 +477,8 @@ public class GuiMaster {
                 NeedEXPInventory(0,inventory,(Player) event.getWhoClicked());
             }
         }else {
-            plugin.getLogger().info(inventory.getSize()+"の大きさ");
-            plugin.getLogger().info("インベントリがエンチャント合成モードでは無い");
+            plugin.getLogger().info("(PE)"+inventory.getSize()+"の大きさ");
+            plugin.getLogger().info("(PE)"+"インベントリがエンチャント合成モードでは無い");
         }
     }
 
@@ -470,6 +501,23 @@ public class GuiMaster {
                 }
             }
             if(EnchantSystem.EnchantItemJudge(leftItem.getType().name()) && rightItem.getType().equals(Material.ENCHANTED_BOOK)){
+                for (NamespacedKey key: leftItem.getItemMeta().getPersistentDataContainer().getKeys()){
+                    if(key.getNamespace().equals("growthsurvival")){
+                        if(EnchantSystem.ChangeRedShirt(leftItem)!=null){
+                            leftItem = EnchantSystem.ChangeRedShirt(leftItem);
+                            break;
+                        }
+                    }
+                }
+                for (NamespacedKey key: rightItem.getItemMeta().getPersistentDataContainer().getKeys()){
+                    if(key.getNamespace().equals("growthsurvival")){
+                        if(EnchantSystem.ChangeRedShirt(rightItem)!=null){
+                            rightItem = EnchantSystem.ChangeRedShirt(rightItem);
+                            break;
+                        }
+                    }
+                }
+
                 ItemStack resultItem = EnchantSystem.RemoveEnchantItem(leftItem,rightItem);
                 Integer NeedEXP = 1;
                 if(!resultItem.getType().equals(Material.AIR)){
@@ -480,6 +528,14 @@ public class GuiMaster {
                     inventory.setItem(7,GuiItem.Failed());
                 }
             }else if(EnchantSystem.EnchantItemJudge(leftItem.getType().name()) && (rightItem.getType().equals(Material.WHITE_STAINED_GLASS_PANE))){
+                for (NamespacedKey key: leftItem.getItemMeta().getPersistentDataContainer().getKeys()){
+                    if(key.getNamespace().equals("growthsurvival")){
+                        if(EnchantSystem.ChangeRedShirt(leftItem)!=null){
+                            leftItem = EnchantSystem.ChangeRedShirt(leftItem);
+                            break;
+                        }
+                    }
+                }
                 if(rightItem.getItemMeta().hasCustomModelData()){
                     inventory.setItem(7,EnchantSystem.RemoveAllEnchantItem(leftItem));
                     NeedEXPInventory(1,inventory,(Player) event.getWhoClicked());
@@ -492,8 +548,8 @@ public class GuiMaster {
                 NeedEXPInventory(0, inventory, (Player) event.getWhoClicked());
             }
         }else {
-            plugin.getLogger().info(inventory.getSize()+"の大きさ");
-            plugin.getLogger().info("インベントリがエンチャント消去モードでは無い");
+            plugin.getLogger().info("(PE)"+inventory.getSize()+"の大きさ");
+            plugin.getLogger().info("(PE)"+"インベントリがエンチャント消去モードでは無い");
         }
     }
 

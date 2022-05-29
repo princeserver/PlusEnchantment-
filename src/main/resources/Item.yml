@@ -89,44 +89,44 @@ Item:
     CustomModelData: 3503
 
   Iron:
-    ItemType: IRON_INGOT
+    ItemType: WHITE_STAINED_GLASS_PANE
     CustomModelData: 1
 
   Gold:
-    ItemType: GOLD_INGOT
+    ItemType: WHITE_STAINED_GLASS_PANE
     CustomModelData: 1
 
   Diamond:
-    ItemType: DIAMOND
+    ItemType: WHITE_STAINED_GLASS_PANE
     CustomModelData: 1
 
   NetherQuartz:
-    ItemType: QUARTZ
+    ItemType: WHITE_STAINED_GLASS_PANE
     CustomModelData: 1
 
   Copper:
-    ItemType: COPPER_INGOT
+    ItemType: WHITE_STAINED_GLASS_PANE
     CustomModelData: 1
 
   Coal:
-    ItemType: COAL
+    ItemType: WHITE_STAINED_GLASS_PANE
     CustomModelData: 1
 
 
   Netherite:
-    ItemType: NETHERITE_SCRAP
+    ItemType: WHITE_STAINED_GLASS_PANE
     CustomModelData: 1
 
   RedStone:
-    ItemType: REDSTONE
+    ItemType: WHITE_STAINED_GLASS_PANE
     CustomModelData: 1
 
   Lapis:
-    ItemType: LAPIS_LAZULI
+    ItemType: WHITE_STAINED_GLASS_PANE
     CustomModelData: 1
 
   Amethyst:
-    ItemType: AMETHYST_SHARD
+    ItemType: WHITE_STAINED_GLASS_PANE
     CustomModelData: 1
 
   Scrap:

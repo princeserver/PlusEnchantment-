@@ -866,7 +866,7 @@ Enchantment:
       - CROSSBOW
       - BOOK
 
-  RIOTIDE:
+  RIPTIDE:
     AddCoefficient: 200
     MaxLevel: 5
     ConflictEnchant:

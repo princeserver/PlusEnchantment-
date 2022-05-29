@@ -35,6 +35,20 @@ public class PlayerRightClick implements Listener {
                 event.setCancelled(true);
                 return;
             }
+            if(event.getPlayer().getInventory().getItemInMainHand().getType().equals(Material.DAMAGED_ANVIL)||event.getPlayer().getInventory().getItemInOffHand().getType().equals(Material.DAMAGED_ANVIL)){
+                GuiMaster.OpenAnvil(event.getPlayer());
+                SoundSystem.OpenSound(event.getPlayer());
+                event.setCancelled(true);
+                return;
+            }
+            if(event.getPlayer().getInventory().getItemInMainHand().getType().equals(Material.CHIPPED_ANVIL)||event.getPlayer().getInventory().getItemInOffHand().getType().equals(Material.CHIPPED_ANVIL)){
+                GuiMaster.OpenAnvil(event.getPlayer());
+                SoundSystem.OpenSound(event.getPlayer());
+                event.setCancelled(true);
+                return;
+            }
+
+
             if(event.getPlayer().getInventory().getItemInMainHand().getType().equals(Material.GRINDSTONE)||event.getPlayer().getInventory().getItemInOffHand().getType().equals(Material.GRINDSTONE)){
                 GuiMaster.OpenRepairMode(event.getPlayer());
                 SoundSystem.OpenSound(event.getPlayer());

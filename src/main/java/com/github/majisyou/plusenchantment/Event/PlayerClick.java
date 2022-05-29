@@ -5,6 +5,7 @@ import com.github.majisyou.plusenchantment.Gui.GuiItem;
 import com.github.majisyou.plusenchantment.Gui.GuiMaster;
 import com.github.majisyou.plusenchantment.PlusEnchantment;
 import com.github.majisyou.plusenchantment.System.EnchantSystem;
+import com.github.majisyou.plusenchantment.System.ItemBuilder;
 import com.github.majisyou.plusenchantment.System.SoundSystem;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
@@ -18,6 +19,7 @@ import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.bukkit.inventory.meta.Repairable;
+import org.checkerframework.framework.qual.EnsuresQualifier;
 
 public class PlayerClick implements Listener {
 
@@ -398,6 +400,12 @@ public class PlayerClick implements Listener {
         if(event.getView().getTitle().equals("-修理モード-")){
             ItemStack ClickedItem = event.getCurrentItem();
             ItemStack AIR = new ItemStack(Material.AIR,1);
+
+            if(event.getClick().equals(ClickType.DOUBLE_CLICK)){
+                event.setCancelled(true);
+                return;
+            }
+
             if(!(ClickedItem == null)) {
                 if(!(event.getClickedInventory().getType().equals(InventoryType.PLAYER))){
                     if(event.getSlot()==0){
@@ -420,7 +428,6 @@ public class PlayerClick implements Listener {
                     if (!event.getClickedInventory().getType().equals(InventoryType.PLAYER)) {
                         Inventory inventory = event.getClickedInventory();
                         GuiMaster.RepairItemInventory(inventory,event);
-
                     }
 
 
@@ -428,7 +435,7 @@ public class PlayerClick implements Listener {
                         if (ClickedItem.getItemMeta().hasCustomModelData()) {
                             if (ClickedItem.getItemMeta().getDisplayName().equals(ChatColor.WHITE+"元のアイテムスロット")) {
                                 if (!(event.getCursor() == null)) {
-                                    if (EnchantSystem.EnchantItemJudge(event.getCursor().getType().toString())||EnchantSystem.BrokenItemIs(event.getCursor())) {
+                                    if (EnchantSystem.EnchantItemJudge(event.getCursor().getType().toString()) || EnchantSystem.BrokenItemIs(event.getCursor())) {
                                         event.setCurrentItem(AIR);
                                         SoundSystem.ClickSound((Player) event.getWhoClicked());
                                         return;
@@ -493,16 +500,33 @@ public class PlayerClick implements Listener {
                                         return;
                                     }
 
-                                    if(((Player) event.getWhoClicked()).getLevel() < EnchantSystem.CalculateRepair(EnchantSystem.ScrapCost(event.getInventory().getItem(3),event.getInventory().getItem(5)))){
-                                        event.setCancelled(true);
-                                        SoundSystem.FailedSound((Player) event.getWhoClicked());
-                                        return;
+                                    if(event.getInventory().getItem(3).getType().equals(Material.CHAIN_COMMAND_BLOCK)){
+                                        if(((Player) event.getWhoClicked()).getLevel() < EnchantSystem.CalculateRepair(EnchantSystem.ScrapCost(ItemBuilder.returnTool(event.getInventory().getItem(3)),event.getInventory().getItem(5)))){
+                                            event.setCancelled(true);
+                                            SoundSystem.FailedSound((Player) event.getWhoClicked());
+                                            return;
+                                        }
+                                    }else {
+                                        if(((Player) event.getWhoClicked()).getLevel() < EnchantSystem.CalculateRepair(EnchantSystem.ScrapCost(event.getInventory().getItem(3),event.getInventory().getItem(5)))){
+                                            event.setCancelled(true);
+                                            SoundSystem.FailedSound((Player) event.getWhoClicked());
+                                            return;
+                                        }
                                     }
                                     event.setCancelled(true);
-                                    ((Player) event.getWhoClicked()).setLevel(((Player) event.getWhoClicked()).getLevel()-EnchantSystem.CalculateRepair(EnchantSystem.ScrapCost(event.getInventory().getItem(3),event.getInventory().getItem(5))));
+                                    if(event.getInventory().getItem(3).getType().equals(Material.CHAIN_COMMAND_BLOCK)){
+                                        ((Player) event.getWhoClicked()).setLevel(((Player) event.getWhoClicked()).getLevel()-EnchantSystem.CalculateRepair(EnchantSystem.ScrapCost(ItemBuilder.returnTool(event.getInventory().getItem(3)),event.getInventory().getItem(5))));
+                                    }else {
+                                        ((Player) event.getWhoClicked()).setLevel(((Player) event.getWhoClicked()).getLevel()-EnchantSystem.CalculateRepair(EnchantSystem.ScrapCost(event.getInventory().getItem(3),event.getInventory().getItem(5))));
+                                    }
                                     event.setCurrentItem(GuiItem.Failed());
                                     event.setCursor(ClickedItem);
-                                    int scrapCost = EnchantSystem.ScrapCost(event.getInventory().getItem(3),event.getInventory().getItem(5));
+                                    int scrapCost = 1000000;
+                                    if(event.getInventory().getItem(3).getType().equals(Material.CHAIN_COMMAND_BLOCK)){
+                                       scrapCost = EnchantSystem.ScrapCost(ItemBuilder.returnTool(event.getInventory().getItem(3)),event.getInventory().getItem(5));
+                                    }else {
+                                        scrapCost = EnchantSystem.ScrapCost(event.getInventory().getItem(3),event.getInventory().getItem(5));
+                                    }
                                     if(event.getInventory().getItem(5).getAmount() > scrapCost){
                                         event.getInventory().getItem(5).setAmount(event.getInventory().getItem(5).getAmount()-scrapCost);
                                     }else {
@@ -527,7 +551,7 @@ public class PlayerClick implements Listener {
                     }
 
                     if(event.getClickedInventory().getType().equals(InventoryType.PLAYER)){
-                        if(EnchantSystem.EnchantItemJudge(ClickedItem.getType().name())||ClickedItem.getItemMeta().getDisplayName().equals(ChatColor.WHITE+"スクラップ")){
+                        if(EnchantSystem.EnchantItemJudge(ClickedItem.getType().name()) || ClickedItem.getItemMeta().getDisplayName().equals(ChatColor.WHITE+"スクラップ") || EnchantSystem.BrokenItemIs(ClickedItem)){
                             if(event.getInventory().getItem(3).getType().equals(Material.WHITE_STAINED_GLASS_PANE)){
                                 event.setCancelled(true);
                                 event.getInventory().setItem(3,ClickedItem);
@@ -572,16 +596,38 @@ public class PlayerClick implements Listener {
                                 }
 
                                 if(event.getSlot()==7){
-                                    if(((Player) event.getWhoClicked()).getLevel() < EnchantSystem.CalculateRepair(EnchantSystem.ScrapCost(event.getInventory().getItem(3),event.getInventory().getItem(5)))){
-                                        event.setCancelled(true);
-                                        SoundSystem.FailedSound((Player) event.getWhoClicked());
-                                        return;
+                                    if(event.getInventory().getItem(3).getType().equals(Material.CHAIN_COMMAND_BLOCK)){
+                                        if(((Player) event.getWhoClicked()).getLevel() < EnchantSystem.CalculateRepair(EnchantSystem.ScrapCost(ItemBuilder.returnTool(event.getInventory().getItem(3)),event.getInventory().getItem(5)))){
+                                            event.setCancelled(true);
+                                            SoundSystem.FailedSound((Player) event.getWhoClicked());
+                                            return;
+                                        }
+                                    }else {
+                                        if(((Player) event.getWhoClicked()).getLevel() < EnchantSystem.CalculateRepair(EnchantSystem.ScrapCost(event.getInventory().getItem(3),event.getInventory().getItem(5)))){
+                                            event.setCancelled(true);
+                                            SoundSystem.FailedSound((Player) event.getWhoClicked());
+                                            return;
+                                        }
                                     }
                                     event.setCancelled(true);
-                                    ((Player) event.getWhoClicked()).setLevel(((Player) event.getWhoClicked()).getLevel()-EnchantSystem.CalculateRepair(EnchantSystem.ScrapCost(event.getInventory().getItem(3),event.getInventory().getItem(5))));
+                                    if(event.getInventory().getItem(3).getType().equals(Material.CHAIN_COMMAND_BLOCK)){
+                                        ((Player) event.getWhoClicked()).setLevel(((Player) event.getWhoClicked()).getLevel()-EnchantSystem.CalculateRepair(EnchantSystem.ScrapCost(ItemBuilder.returnTool(event.getInventory().getItem(3)),event.getInventory().getItem(5))));
+                                    }else {
+                                        ((Player) event.getWhoClicked()).setLevel(((Player) event.getWhoClicked()).getLevel()-EnchantSystem.CalculateRepair(EnchantSystem.ScrapCost(event.getInventory().getItem(3),event.getInventory().getItem(5))));
+                                    }
                                     event.setCurrentItem(GuiItem.Failed());
                                     event.getWhoClicked().getInventory().addItem(ClickedItem);
-                                    int scrapCost = EnchantSystem.ScrapCost(event.getInventory().getItem(3),event.getInventory().getItem(5));
+                                    int scrapCost = 1000000;
+                                    if(event.getInventory().getItem(3).getType().equals(Material.CHAIN_COMMAND_BLOCK)){
+                                        scrapCost = EnchantSystem.ScrapCost(ItemBuilder.returnTool(event.getInventory().getItem(3)),event.getInventory().getItem(5));
+                                    }else {
+                                        scrapCost = EnchantSystem.ScrapCost(event.getInventory().getItem(3),event.getInventory().getItem(5));
+                                    }
+                                    if(event.getInventory().getItem(5).getAmount() > scrapCost){
+                                        event.getInventory().getItem(5).setAmount(event.getInventory().getItem(5).getAmount()-scrapCost);
+                                    }else {
+                                        event.getClickedInventory().setItem(5, GuiItem.ScrapEmpty());
+                                    }
                                     if(event.getInventory().getItem(5).getAmount() > scrapCost){
                                         event.getInventory().getItem(5).setAmount(event.getInventory().getItem(5).getAmount()-scrapCost);
                                     }else {
@@ -597,22 +643,22 @@ public class PlayerClick implements Listener {
                     }
                 }
 
-                if(event.getClick().equals(ClickType.RIGHT)){
-                    if(ClickedItem.getType().equals(Material.COMMAND_BLOCK)){
-                        if(ClickedItem.getItemMeta().getDisplayName().equals(ChatColor.WHITE+"スクラップ")){
-                            if(!(event.getClickedInventory().getType().equals(InventoryType.PLAYER))){
-                                if(event.getSlot() == 5){
-                                    if(ClickedItem.getAmount()==1){
-                                        if(event.getCursor()==null||event.getCursor().getType().equals(Material.AIR)){
-                                            event.setCursor(GuiItem.ScrapEmpty());
-                                        }
-                                    }
-                                }
-                            }
-                            return;
-                        }
-                    }
-                }
+//                if(event.getClick().equals(ClickType.RIGHT)){
+//                    if(ClickedItem.getType().equals(Material.COMMAND_BLOCK)){
+//                        if(ClickedItem.getItemMeta().getDisplayName().equals(ChatColor.WHITE+"スクラップ")){
+//                            if(!(event.getClickedInventory().getType().equals(InventoryType.PLAYER))){
+//                                if(event.getSlot() == 5){
+//                                    if(ClickedItem.getAmount()==1){
+//                                        if(event.getCursor()==null||event.getCursor().getType().equals(Material.AIR)){
+//                                            event.setCursor(GuiItem.ScrapEmpty());
+//                                        }
+//                                    }
+//                                }
+//                            }
+//                            return;
+//                        }
+//                    }
+//                }
 
                 if(!(event.getClickedInventory().getType().equals(InventoryType.PLAYER)) && !(event.getClick().equals(ClickType.LEFT)||event.getClick().equals(ClickType.SHIFT_LEFT))){
                     event.setCancelled(true);
