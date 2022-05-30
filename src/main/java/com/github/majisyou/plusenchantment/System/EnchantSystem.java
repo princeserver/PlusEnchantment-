@@ -174,7 +174,8 @@ public class EnchantSystem {
                 plugin.getLogger().info("(PE)"+enchantment.getName()+"のAddCoefficientが設定されてないかも");
         }
 
-        return MaxDurability/(scrapRepairRate+SumEnchantLevel/150);
+
+        return MaxDurability/(scrapRepairRate+SumEnchantLevel/150)+1;
     }
 
     public static Integer ScrapCost(ItemStack leftItem,ItemStack Scrap){
@@ -246,9 +247,9 @@ public class EnchantSystem {
     }
 
     public static Integer CalculateRepair(Integer NeedScrapAmount){
-        int NeedExp = NeedScrapAmount/7;
-        if(!(NeedScrapAmount%7 == 0)){
-            NeedExp += 1;
+        int NeedExp = (NeedScrapAmount+6)/7;
+        if(NeedExp == 0){
+            NeedExp = 1;
         }
         return NeedExp;
     }
