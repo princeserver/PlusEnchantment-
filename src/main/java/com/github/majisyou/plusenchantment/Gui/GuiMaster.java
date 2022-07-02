@@ -20,6 +20,7 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class GuiMaster {
@@ -338,6 +339,7 @@ public class GuiMaster {
         if(!(Material.getMaterial(Name)==null)){
             ItemStack Scrap = GuiItem.Scrap();
             Inventory playerinventory = player.getInventory();
+            int counter = 0;
             if(playerinventory.contains(Material.getMaterial(Name),NeedItem)){
                 if(click==ClickType.LEFT){
                     for (int i=0;i<playerinventory.getSize();i++){
@@ -345,6 +347,10 @@ public class GuiMaster {
                             if(!(playerinventory.getItem(i).getType().equals(Material.AIR))){
                                 if(playerinventory.getItem(i).getType().equals(Material.getMaterial(Name))){
                                     ItemStack item = playerinventory.getItem(i);
+                                    if(item.getAmount() < EnchantmentManager.getNeedItems(Name)){
+                                        continue;
+                                    }
+                                    counter=1;
                                     if((item.getAmount() - EnchantmentManager.getScrapRate(Name))<0){
                                         playerinventory.clear(i);
                                         break;
@@ -355,6 +361,9 @@ public class GuiMaster {
                                 }
                             }
                         }
+                    }
+                    if(counter==0){
+                     return;
                     }
                     Scrap.setAmount(scrapRate);
                     if(!(playerinventory.firstEmpty()==-1)){
