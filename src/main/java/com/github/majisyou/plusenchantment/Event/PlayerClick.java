@@ -143,6 +143,12 @@ public class PlayerClick implements Listener {
                         }
                     }else {
                         if(EnchantSystem.EnchantItemJudge(ClickedItem.getType().toString())){
+                            if(event.getCursor()!=null && !event.getCursor().getType().equals(Material.AIR)){
+                                SoundSystem.FailedSound((Player) event.getWhoClicked());
+                                event.setCancelled(true);
+                                return;
+                            }
+
                             if(event.getWhoClicked().getInventory().firstEmpty()==-1){
                                 SoundSystem.FailedSound((Player) event.getWhoClicked());
                                 event.setCancelled(true);
@@ -343,6 +349,11 @@ public class PlayerClick implements Listener {
                         }
                     }else {
                         if(EnchantSystem.EnchantItemJudge(ClickedItem.getType().toString())){
+                            if(event.getCursor()!=null && !event.getCursor().getType().equals(Material.AIR)){
+                                SoundSystem.FailedSound((Player) event.getWhoClicked());
+                                event.setCancelled(true);
+                                return;
+                            }
                             if(event.getWhoClicked().getInventory().firstEmpty()==-1){
                                 event.setCancelled(true);
                                 SoundSystem.FailedSound((Player) event.getWhoClicked());
@@ -426,8 +437,15 @@ public class PlayerClick implements Listener {
 
                 if (event.getClick().equals(ClickType.LEFT)) {
                     if (!event.getClickedInventory().getType().equals(InventoryType.PLAYER)) {
-                        Inventory inventory = event.getClickedInventory();
-                        GuiMaster.RepairItemInventory(inventory,event);
+                        if(!event.getCurrentItem().getType().equals(Material.COMMAND_BLOCK)){
+                            Inventory inventory = event.getClickedInventory();
+                            GuiMaster.RepairItemInventory(inventory,event);
+                        }else {
+                            if(event.getCursor()==null || event.getCursor().getType().equals(Material.AIR)){
+                                Inventory inventory = event.getClickedInventory();
+                                GuiMaster.RepairItemInventory(inventory,event);
+                            }
+                        }
                     }
 
 
@@ -573,6 +591,11 @@ public class PlayerClick implements Listener {
                         }
                     }else {
                         if(EnchantSystem.EnchantItemJudge(ClickedItem.getType().toString())||ClickedItem.getItemMeta().getDisplayName().equals(ChatColor.WHITE+"スクラップ")||EnchantSystem.BrokenItemIs(ClickedItem)){
+                            if(event.getCursor()!=null && !event.getCursor().getType().equals(Material.AIR)){
+                                SoundSystem.FailedSound((Player) event.getWhoClicked());
+                                event.setCancelled(true);
+                                return;
+                            }
                             if(event.getWhoClicked().getInventory().firstEmpty()==-1){
                                 event.setCancelled(true);
                                 return;
