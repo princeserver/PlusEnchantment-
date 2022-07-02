@@ -1,5 +1,6 @@
 package com.github.majisyou.plusenchantment.Gui;
 
+import com.github.majisyou.plusenchantment.Config.EnchantmentManager;
 import com.github.majisyou.plusenchantment.Config.ItemConfig;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
@@ -210,7 +211,10 @@ public class GuiItem {
         ItemStack Iron = new ItemStack(Material.getMaterial(ItemConfig.getItemType("Iron")),1);
         ItemMeta IronMeta = Iron.getItemMeta();
         List<String> Lore = new ArrayList<>();
-        IronMeta.setDisplayName(ChatColor.WHITE+"鉄インゴット"+ ChatColor.GOLD +"8個"+ChatColor.WHITE+" ➡ スクラップ"+ChatColor.GOLD+"1個");
+        String name = "IRON_INGOT";
+        Integer scrapAmount = EnchantmentManager.getScrapRate(name);
+        Integer itemAmount = EnchantmentManager.getNeedItems(name);
+        IronMeta.setDisplayName(ChatColor.WHITE+"鉄インゴット"+ ChatColor.GOLD +itemAmount+"個"+ChatColor.WHITE+" ➡ スクラップ"+ChatColor.GOLD+scrapAmount+"個");
         IronMeta.setLore(Lore);
         Iron.setItemMeta(IronMeta);
         return Iron;
@@ -220,7 +224,10 @@ public class GuiItem {
         ItemStack Gold = new ItemStack(Material.getMaterial(ItemConfig.getItemType("Gold")),1);
         ItemMeta GoldMeta = Gold.getItemMeta();
         List<String> Lore = new ArrayList<>();
-        GoldMeta.setDisplayName(ChatColor.WHITE+"金インゴット"+ChatColor.GOLD +"2個"+ChatColor.WHITE+" ➡ スクラップ"+ChatColor.GOLD+"1個");
+        String name = "GOLD_INGOT";
+        Integer scrapAmount = EnchantmentManager.getScrapRate(name);
+        Integer itemAmount = EnchantmentManager.getNeedItems(name);
+        GoldMeta.setDisplayName(ChatColor.WHITE+"金インゴット"+ChatColor.GOLD +itemAmount+"個"+ChatColor.WHITE+" ➡ スクラップ"+ChatColor.GOLD+scrapAmount+"個");
         GoldMeta.setLore(Lore);
         Gold.setItemMeta(GoldMeta);
         return Gold;
@@ -230,7 +237,10 @@ public class GuiItem {
         ItemStack Diamond = new ItemStack(Material.getMaterial(ItemConfig.getItemType("Diamond")),1);
         ItemMeta DiamondMeta = Diamond.getItemMeta();
         List<String> Lore = new ArrayList<>();
-        DiamondMeta.setDisplayName(ChatColor.WHITE+"ダイヤモンド"+ChatColor.GOLD +"1個"+ChatColor.WHITE+" ➡ スクラップ"+ChatColor.GOLD+"4個");
+        String name = "DIAMOND";
+        Integer scrapAmount = EnchantmentManager.getScrapRate(name);
+        Integer itemAmount = EnchantmentManager.getNeedItems(name);
+        DiamondMeta.setDisplayName(ChatColor.WHITE+"ダイヤモンド"+ChatColor.GOLD +itemAmount+"個"+ChatColor.WHITE+" ➡ スクラップ"+ChatColor.GOLD+scrapAmount+"個");
         DiamondMeta.setLore(Lore);
         Diamond.setItemMeta(DiamondMeta);
         return Diamond;
@@ -240,7 +250,10 @@ public class GuiItem {
         ItemStack NetherQuartz = new ItemStack(Material.getMaterial(ItemConfig.getItemType("NetherQuartz")),1);
         ItemMeta NetherQuartzMeta = NetherQuartz.getItemMeta();
         List<String> Lore = new ArrayList<>();
-        NetherQuartzMeta.setDisplayName(ChatColor.WHITE+"ネザークォーツ"+ChatColor.GOLD +"8個"+ChatColor.WHITE+" ➡ スクラップ"+ChatColor.GOLD+"1個");
+        String name = "QUARTZ";
+        Integer scrapAmount = EnchantmentManager.getScrapRate(name);
+        Integer itemAmount = EnchantmentManager.getNeedItems(name);
+        NetherQuartzMeta.setDisplayName(ChatColor.WHITE+"ネザークォーツ"+ChatColor.GOLD +itemAmount+"個"+ChatColor.WHITE+" ➡ スクラップ"+ChatColor.GOLD+scrapAmount+"個");
         NetherQuartzMeta.setLore(Lore);
         NetherQuartz.setItemMeta(NetherQuartzMeta);
         return NetherQuartz;
@@ -250,7 +263,10 @@ public class GuiItem {
         ItemStack Copper = new ItemStack(Material.getMaterial(ItemConfig.getItemType("Copper")),1);
         ItemMeta CopperMeta = Copper.getItemMeta();
         List<String> Lore = new ArrayList<>();
-        CopperMeta.setDisplayName(ChatColor.WHITE+"銅インゴット"+ChatColor.GOLD +"16個"+ChatColor.WHITE+" ➡ スクラップ"+ChatColor.GOLD+"1個");
+        String name = "COPPER_INGOT";
+        Integer scrapAmount = EnchantmentManager.getScrapRate(name);
+        Integer itemAmount = EnchantmentManager.getNeedItems(name);
+        CopperMeta.setDisplayName(ChatColor.WHITE+"銅インゴット"+ChatColor.GOLD +itemAmount+"個"+ChatColor.WHITE+" ➡ スクラップ"+ChatColor.GOLD+scrapAmount+"個");
         CopperMeta.setLore(Lore);
         Copper.setItemMeta(CopperMeta);
         return Copper;
@@ -260,7 +276,10 @@ public class GuiItem {
         ItemStack Coal = new ItemStack(Material.getMaterial(ItemConfig.getItemType("Coal")),1);
         ItemMeta CoalMeta = Coal.getItemMeta();
         List<String> Lore = new ArrayList<>();
-        CoalMeta.setDisplayName(ChatColor.WHITE+"石炭"+ChatColor.GOLD +"16個"+ChatColor.WHITE+" ➡ スクラップ"+ChatColor.GOLD+"1個");
+        String name = "COAL";
+        Integer scrapAmount = EnchantmentManager.getScrapRate(name);
+        Integer itemAmount = EnchantmentManager.getNeedItems(name);
+        CoalMeta.setDisplayName(ChatColor.WHITE+"石炭"+ChatColor.GOLD +itemAmount+"個"+ChatColor.WHITE+" ➡ スクラップ"+ChatColor.GOLD+scrapAmount+"個");
         CoalMeta.setLore(Lore);
         Coal.setItemMeta(CoalMeta);
         return Coal;
@@ -270,7 +289,10 @@ public class GuiItem {
         ItemStack Netherite = new ItemStack(Material.getMaterial(ItemConfig.getItemType("Netherite")),1);
         ItemMeta NetheriteMeta = Netherite.getItemMeta();
         List<String> Lore = new ArrayList<>();
-        NetheriteMeta.setDisplayName(ChatColor.WHITE+"ネザライトインゴットの欠片"+ChatColor.GOLD +"1個"+ChatColor.WHITE+" ➡ スクラップ"+ChatColor.GOLD+"10個");
+        String name = "NETHERITE_SCRAP";
+        Integer scrapAmount = EnchantmentManager.getScrapRate(name);
+        Integer itemAmount = EnchantmentManager.getNeedItems(name);
+        NetheriteMeta.setDisplayName(ChatColor.WHITE+"ネザライトインゴットの欠片"+ChatColor.GOLD +itemAmount+"個"+ChatColor.WHITE+" ➡ スクラップ"+ChatColor.GOLD+scrapAmount+"個");
         NetheriteMeta.setLore(Lore);
         Netherite.setItemMeta(NetheriteMeta);
         return Netherite;
@@ -280,7 +302,10 @@ public class GuiItem {
         ItemStack RedStone = new ItemStack(Material.getMaterial(ItemConfig.getItemType("RedStone")),1);
         ItemMeta RedStoneMeta = RedStone.getItemMeta();
         List<String> Lore = new ArrayList<>();
-        RedStoneMeta.setDisplayName(ChatColor.WHITE+"レッドストーンダスト"+ChatColor.GOLD +"8個"+ChatColor.WHITE+" ➡ スクラップ"+ChatColor.GOLD+"1個");
+        String name = "REDSTONE";
+        Integer scrapAmount = EnchantmentManager.getScrapRate(name);
+        Integer itemAmount = EnchantmentManager.getNeedItems(name);
+        RedStoneMeta.setDisplayName(ChatColor.WHITE+"レッドストーンダスト"+ChatColor.GOLD +itemAmount+"個"+ChatColor.WHITE+" ➡ スクラップ"+ChatColor.GOLD+scrapAmount+"個");
         RedStoneMeta.setLore(Lore);
         RedStone.setItemMeta(RedStoneMeta);
         return RedStone;
@@ -290,7 +315,10 @@ public class GuiItem {
         ItemStack Lapis = new ItemStack(Material.getMaterial(ItemConfig.getItemType("Lapis")),1);
         ItemMeta LapisMeta = Lapis.getItemMeta();
         List<String> Lore = new ArrayList<>();
-        LapisMeta.setDisplayName(ChatColor.WHITE+"ラピスラズリ"+ChatColor.GOLD +"8個"+ChatColor.WHITE+" ➡ スクラップ"+ChatColor.GOLD+"1個");
+        String name = "LAPIS_LAZULI";
+        Integer scrapAmount = EnchantmentManager.getScrapRate(name);
+        Integer itemAmount = EnchantmentManager.getNeedItems(name);
+        LapisMeta.setDisplayName(ChatColor.WHITE+"ラピスラズリ"+ChatColor.GOLD +itemAmount+"個"+ChatColor.WHITE+" ➡ スクラップ"+ChatColor.GOLD+scrapAmount+"個");
         LapisMeta.setLore(Lore);
         Lapis.setItemMeta(LapisMeta);
         return Lapis;
@@ -300,7 +328,10 @@ public class GuiItem {
         ItemStack Amethyst = new ItemStack(Material.getMaterial(ItemConfig.getItemType("Amethyst")),1);
         ItemMeta AmethystMeta = Amethyst.getItemMeta();
         List<String> Lore = new ArrayList<>();
-        AmethystMeta.setDisplayName(ChatColor.WHITE+"アメジストの欠片"+ChatColor.GOLD +"8個"+ChatColor.WHITE+" ➡ スクラップ"+ChatColor.GOLD+"1個");
+        String name = "AMETHYST_SHARD";
+        Integer scrapAmount = EnchantmentManager.getScrapRate(name);
+        Integer itemAmount = EnchantmentManager.getNeedItems(name);
+        AmethystMeta.setDisplayName(ChatColor.WHITE+"アメジストの欠片"+ChatColor.GOLD +itemAmount+"個"+ChatColor.WHITE+" ➡ スクラップ"+ChatColor.GOLD+scrapAmount+"個");
         AmethystMeta.setLore(Lore);
         Amethyst.setItemMeta(AmethystMeta);
         return Amethyst;
@@ -309,6 +340,7 @@ public class GuiItem {
     public static ItemStack Scrap(){
         ItemStack scrap = new ItemStack(Material.getMaterial(ItemConfig.getItemType("Scrap")),1);
         ItemMeta scrapMeta = scrap.getItemMeta();
+
         scrapMeta.setDisplayName(ChatColor.WHITE+"スクラップ");
         scrapMeta.setCustomModelData(ItemConfig.getCustomModelData("Scrap"));
 
