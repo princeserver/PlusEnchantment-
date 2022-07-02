@@ -17,7 +17,7 @@ public class Cmd_reloadConfig implements CommandExecutor {
 
     @Override
     public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
-        if(!sender.hasPermission("PSOP")){
+        if(!sender.hasPermission("PE.OP")){
             sender.sendMessage("You dont have permission");
             return true;
         }
