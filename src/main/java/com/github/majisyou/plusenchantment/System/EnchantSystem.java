@@ -41,9 +41,11 @@ public class EnchantSystem {
                 }
             }
             ItemMeta AddEnchantItemMeta = AddEnchantItem.getItemMeta();
+            if(leftItem.getItemMeta().hasDisplayName()){
+                AddEnchantItemMeta.setDisplayName(leftItem.getItemMeta().getDisplayName());
+            }
             EnchantmentStorageMeta AddEnchantBookMeta = null;
             AddEnchant_sub = AddEnchantItemMeta.getEnchants();
-
             if(leftItem.getType().equals(Material.ENCHANTED_BOOK)){
                 leftEnchant =((EnchantmentStorageMeta) leftItem.getItemMeta()).getStoredEnchants();
                 AddEnchantBookMeta = (EnchantmentStorageMeta) AddEnchantItemMeta;
@@ -456,12 +458,19 @@ public class EnchantSystem {
             case "§7範囲ダメージ" ->{
                 return Enchantment.SWEEPING_EDGE;
             }
+            case "§7棘の鎧" ->{
+                return Enchantment.THORNS;
+            }
             case "§7消滅の呪い" ->{
                 return Enchantment.VANISHING_CURSE;
             }
             case "§7水中歩行" ->{
                 return Enchantment.WATER_WORKER;
             }
+            case "§7忠誠" ->{
+                return Enchantment.LOYALTY;
+            }
+
         }
 
         return null;
