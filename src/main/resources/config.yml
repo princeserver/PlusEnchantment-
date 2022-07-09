@@ -1080,5 +1080,19 @@ Enchantment:
       - BOOK
       - TURTLE_HELMET
 
+  SWIFT_SNEAK:
+    AddCoefficient: 400
+    MaxLevel: 5
+    ConflictEnchant:
+      - None
+    PossibleItem:
+      - ENCHANTED_BOOK
+      - LEATHER_BOOTS
+      - DIAMOND_BOOTS
+      - GOLDEN_BOOTS
+      - IRON_BOOTS
+      - NETHERITE_BOOTS
+      - CHAINMAIL_BOOTS
+      - BOOK
 
 
