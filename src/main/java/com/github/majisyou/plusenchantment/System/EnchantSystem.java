@@ -243,9 +243,14 @@ public class EnchantSystem {
                 if(AddCoefficient==0 && !(enchantment.isCursed()))
                     plugin.getLogger().info("(PE)"+enchantment.getName()+"のAddCoefficientが設定されてないかも");
             }
-            NeedExp /= 100;
+            Integer CalExp = NumericalChange(NeedExp);
+            return CalExp;
         }
-        return NeedExp;
+        return 1;
+    }
+
+    public static Integer NumericalChange(Integer k){
+        return Math.max(1,Math.min((k/100),(k/125)+40));
     }
 
     public static Integer CalculateRepair(Integer NeedScrapAmount){
