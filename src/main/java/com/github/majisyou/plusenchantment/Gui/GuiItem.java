@@ -2,16 +2,20 @@ package com.github.majisyou.plusenchantment.Gui;
 
 import com.github.majisyou.plusenchantment.Config.EnchantmentManager;
 import com.github.majisyou.plusenchantment.Config.ItemConfig;
+import com.github.majisyou.plusenchantment.PlusEnchantment;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
+import org.bukkit.NamespacedKey;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
+import org.bukkit.persistence.PersistentDataContainer;
+import org.bukkit.persistence.PersistentDataType;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class GuiItem {
-
+    private static final PlusEnchantment plugin = PlusEnchantment.getInstance();
     public static ItemStack BackGroundItem (){
         ItemStack BackGroundItem = new ItemStack(Material.getMaterial(ItemConfig.getItemType("BackGround")),1);
         ItemMeta BackGroundItemMeta = BackGroundItem.getItemMeta();
@@ -108,22 +112,37 @@ public class GuiItem {
         return numberItem;
     }
 
-
-
     public static ItemStack BaseEmpty(){
         ItemStack EmptyItem = new ItemStack(Material.getMaterial(ItemConfig.getItemType("BaseEmpty")),1);
         ItemMeta EmptyItemMeta = EmptyItem.getItemMeta();
         EmptyItemMeta.setDisplayName(ChatColor.WHITE+"元のアイテムスロット");
         EmptyItemMeta.setCustomModelData(ItemConfig.getCustomModelData("BaseEmpty"));
+        PersistentDataContainer pdc = EmptyItemMeta.getPersistentDataContainer();
+        NamespacedKey key = new NamespacedKey(plugin,"emptySlot");
+        pdc.set(key, PersistentDataType.STRING,"base");
         EmptyItem.setItemMeta(EmptyItemMeta);
         return EmptyItem;
     }
 
+    public static ItemStack SoulEmpty(){
+        ItemStack EmptyItem = new ItemStack(Material.getMaterial(ItemConfig.getItemType("SoulEmpty")),1);
+        ItemMeta EmptyItemMeta = EmptyItem.getItemMeta();
+        EmptyItemMeta.setDisplayName(ChatColor.WHITE+"ソウルスロット");
+        EmptyItemMeta.setCustomModelData(ItemConfig.getCustomModelData("SoulEmpty"));
+        PersistentDataContainer pdc = EmptyItemMeta.getPersistentDataContainer();
+        NamespacedKey key = new NamespacedKey(plugin,"emptySlot");
+        pdc.set(key, PersistentDataType.STRING,"soul");
+        EmptyItem.setItemMeta(EmptyItemMeta);
+        return EmptyItem;
+    }
     public static ItemStack AddEmpty(){
         ItemStack EmptyItem = new ItemStack(Material.getMaterial(ItemConfig.getItemType("AddEmpty")),1);
         ItemMeta EmptyItemMeta = EmptyItem.getItemMeta();
         EmptyItemMeta.setDisplayName(ChatColor.WHITE+"追加するアイテムスロット");
         EmptyItemMeta.setCustomModelData(ItemConfig.getCustomModelData("AddEmpty"));
+        PersistentDataContainer pdc = EmptyItemMeta.getPersistentDataContainer();
+        NamespacedKey key = new NamespacedKey(plugin,"emptySlot");
+        pdc.set(key, PersistentDataType.STRING,"add");
         EmptyItem.setItemMeta(EmptyItemMeta);
         return EmptyItem;
     }
@@ -133,6 +152,9 @@ public class GuiItem {
         ItemMeta EmptyItemMeta = EmptyItem.getItemMeta();
         EmptyItemMeta.setDisplayName(ChatColor.WHITE+"スクラップスロット");
         EmptyItemMeta.setCustomModelData(ItemConfig.getCustomModelData("ScrapEmpty"));
+        PersistentDataContainer pdc = EmptyItemMeta.getPersistentDataContainer();
+        NamespacedKey key = new NamespacedKey(plugin,"emptySlot");
+        pdc.set(key, PersistentDataType.STRING,"scrap");
         EmptyItem.setItemMeta(EmptyItemMeta);
         return EmptyItem;
     }
@@ -142,6 +164,9 @@ public class GuiItem {
         ItemMeta EmptyItemMeta = EmptyItem.getItemMeta();
         EmptyItemMeta.setDisplayName(ChatColor.WHITE+"消去するエンチャント本のスロット");
         EmptyItemMeta.setCustomModelData(ItemConfig.getCustomModelData("RemoveEnchantEmpty"));
+        PersistentDataContainer pdc = EmptyItemMeta.getPersistentDataContainer();
+        NamespacedKey key = new NamespacedKey(plugin,"emptySlot");
+        pdc.set(key, PersistentDataType.STRING,"enchant");
         EmptyItem.setItemMeta(EmptyItemMeta);
         return EmptyItem;
     }
@@ -346,6 +371,56 @@ public class GuiItem {
 
         scrap.setItemMeta(scrapMeta);
         return scrap;
+    }
+
+    public static ItemStack Soul(){
+        ItemStack scrap = new ItemStack(Material.getMaterial(ItemConfig.getItemType("Soul")),1);
+        ItemMeta scrapMeta = scrap.getItemMeta();
+
+        scrapMeta.setDisplayName(ChatColor.WHITE+"ドラゴンソウル");
+        scrapMeta.setCustomModelData(ItemConfig.getCustomModelData("Soul"));
+
+        scrap.setItemMeta(scrapMeta);
+        return scrap;
+    }
+
+    public static ItemStack WitherSkeleton(){
+        ItemStack Amethyst = new ItemStack(Material.getMaterial(ItemConfig.getItemType("WitherSkeleton")),1);
+        ItemMeta AmethystMeta = Amethyst.getItemMeta();
+        List<String> Lore = new ArrayList<>();
+        String name = "WITHER_SKELETON_SKULL";
+        Integer scrapAmount = EnchantmentManager.getSoulRate(name);
+        Integer itemAmount = EnchantmentManager.getNeedSoulItems(name);
+        AmethystMeta.setDisplayName(ChatColor.WHITE+"ウィザースケルトンの頭"+ChatColor.GOLD +itemAmount+"個"+ChatColor.WHITE+" ➡ ドラゴンソウル"+ChatColor.GOLD+scrapAmount+"個");
+        AmethystMeta.setLore(Lore);
+        Amethyst.setItemMeta(AmethystMeta);
+        return Amethyst;
+    }
+
+    public static ItemStack EnchantMode(){
+        ItemStack RemoveEnchantModeItem = new ItemStack(Material.getMaterial(ItemConfig.getItemType("EnchantMode")),1);
+        ItemMeta RemoveEnchantModeItemMeta = RemoveEnchantModeItem.getItemMeta();
+        List<String> Lore = new ArrayList<>();
+        RemoveEnchantModeItemMeta.setDisplayName(ChatColor.WHITE+"-カスタムエンチャントモード-");
+        Lore.add(ChatColor.WHITE+"本に特殊エンチャントが確率で付きます");
+        Lore.add(ChatColor.GREEN+"クリック"+ChatColor.WHITE+"でカスタムエンチャントモードに切り替えます");
+        RemoveEnchantModeItemMeta.setLore(Lore);
+        RemoveEnchantModeItemMeta.setCustomModelData(ItemConfig.getCustomModelData("EnchantMode"));
+        RemoveEnchantModeItem.setItemMeta(RemoveEnchantModeItemMeta);
+        return RemoveEnchantModeItem;
+    }
+
+    public static ItemStack SoulMode(){
+        ItemStack RemoveEnchantModeItem = new ItemStack(Material.getMaterial(ItemConfig.getItemType("SoulMode")),1);
+        ItemMeta RemoveEnchantModeItemMeta = RemoveEnchantModeItem.getItemMeta();
+        List<String> Lore = new ArrayList<>();
+        RemoveEnchantModeItemMeta.setDisplayName(ChatColor.WHITE+"-ドラゴンソウルモード-");
+        Lore.add(ChatColor.WHITE+"アイテムからドラゴンソウルが手に入ります");
+        Lore.add(ChatColor.GREEN+"クリック"+ChatColor.WHITE+"でドラゴンソウルモードに切り替えます");
+        RemoveEnchantModeItemMeta.setLore(Lore);
+        RemoveEnchantModeItemMeta.setCustomModelData(ItemConfig.getCustomModelData("SoulMode"));
+        RemoveEnchantModeItem.setItemMeta(RemoveEnchantModeItemMeta);
+        return RemoveEnchantModeItem;
     }
 
 

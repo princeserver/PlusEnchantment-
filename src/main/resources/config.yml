@@ -1,17 +1,25 @@
 servername:
 
+CustomModel:
+  - 0
+
+SoulRate:
+  WITHER_SKELETON_SKULL:
+    soul: 1
+    Need: 3
+
 ScrapRate:
   IRON_INGOT:
     scrap: 1
     Need: 8
 
   DIAMOND:
-    scrap: 4
+    scrap: 1
     Need: 1
 
   GOLD_INGOT:
-    scrap: 1
-    Need: 2
+    scrap: 4
+    Need: 1
 
   QUARTZ:
     scrap: 1
@@ -26,7 +34,7 @@ ScrapRate:
     Need: 16
 
   NETHERITE_SCRAP:
-    scrap: 10
+    scrap: 8
     Need: 1
 
   REDSTONE:
@@ -35,11 +43,51 @@ ScrapRate:
 
   LAPIS_LAZULI:
     scrap: 1
-    Need: 8
+    Need: 16
 
   AMETHYST_SHARD:
     scrap: 1
-    Need: 8
+    Need: 16
+
+EnchantmentName:
+  - ARROW_DAMAGE
+  - ARROW_FIRE
+  - ARROW_INFINITE
+  - ARROW_KNOCKBACK
+  - BINDING_CURSE
+  - CHANNELING
+  - DAMAGE_ALL
+  - DAMAGE_ARTHROPODS
+  - DAMAGE_UNDEAD
+  - DEPTH_STRIDER
+  - DIG_SPEED
+  - DURABILITY
+  - FIRE_ASPECT
+  - FROST_WALKER
+  - IMPALING
+  - KNOCKBACK
+  - LOOT_BONUS_BLOCKS
+  - LOOT_BONUS_MOBS
+  - LOYALTY
+  - LUCK
+  - LURE
+  - MULTISHOT
+  - OXYGEN
+  - PIERCING
+  - PROTECTION_ENVIRONMENTAL
+  - PROTECTION_EXPLOSIONS
+  - PROTECTION_FALL
+  - PROTECTION_FIRE
+  - PROTECTION_PROJECTILE
+  - QUICK_CHARGE
+  - RIPTIDE
+  - SILK_TOUCH
+  - SOUL_SPEED
+  - SWEEPING_EDGE
+  - THORNS
+  - VANISHING_CURSE
+  - WATER_WORKER
+  - SWIFT_SNEAK
 
 ScrapRepairRate:
   WOODEN_AXE: 1
@@ -114,7 +162,6 @@ ScrapRepairRate:
   TRIDENT: 8
   SHEARS: 1
   BOOK: 1
-
 
 ItemList:
   - WOODEN_AXE
@@ -203,9 +250,48 @@ BrokenItem:
   - NETHERITE_SHOVEL
   - NETHERITE_SWORD
 
+CustomEnchantTable:
+  NewEnchantmentList:
+    - テレキネシス
+    - テレキネシス
+    - テレキネシス
+    - テレキネシス
+    - テレキネシス
+    - 諸刃の呪い
+    - 自壊の呪い
+    - 自動精錬
+    - 自動精錬
+    - 自動精錬
+    - 自動精錬
+    - 自動精錬
+    - 頭蓋崇拝
+    - 頭蓋崇拝
+    - 頭蓋崇拝
+    - 頭蓋崇拝
+    - 頭蓋崇拝
+    - ソウルバインド
+    - 虫の知らせ
+    - 豊穣の舞
+    - 豊穣の舞
+    - 豊穣の舞
+    - 豊穣の舞
+    - 豊穣の舞
+    - 豊穣の舞
+    - SOUL_SPEED
+    - SOUL_SPEED
+    - BINDING_CURSE
+    - VANISHING_CURSE
+    - FROST_WALKER
+    - FROST_WALKER
+    - SWIFT_SNEAK
+    - SWIFT_SNEAK
+    - SWIFT_SNEAK
+    - SWIFT_SNEAK
+    - SWIFT_SNEAK
+
 Enchantment:
   DURABILITY:
-    AddCoefficient: 20
+    AddCoefficient: 50
     MaxLevel: 10
     ConflictEnchant:
       - MENDING
@@ -281,9 +367,10 @@ Enchantment:
       - FLINT_AND_STEEL
       - TRIDENT
       - BOOK
-
+      - SHIELD
+      - SHEARS
   ARROW_DAMAGE:
-    AddCoefficient: 25
+    AddCoefficient: 50
     MaxLevel: 10
     ConflictEnchant:
       - None
@@ -291,9 +378,8 @@ Enchantment:
       - ENCHANTED_BOOK
       - BOW
       - BOOK
-
   ARROW_FIRE:
-    AddCoefficient: 400
+    AddCoefficient: 2500
     MaxLevel: 1
     ConflictEnchant:
       - None
@@ -301,9 +387,8 @@ Enchantment:
       - ENCHANTED_BOOK
       - BOW
       - BOOK
-
   ARROW_INFINITE:
-    AddCoefficient: 800
+    AddCoefficient: 2500
     MaxLevel: 1
     ConflictEnchant:
       - None
@@ -311,9 +396,8 @@ Enchantment:
       - ENCHANTED_BOOK
       - BOW
       - BOOK
-
   ARROW_KNOCKBACK:
-    AddCoefficient: 100
+    AddCoefficient: 200
     MaxLevel: 5
     ConflictEnchant:
       - None
@@ -321,9 +405,8 @@ Enchantment:
       - ENCHANTED_BOOK
       - BOW
       - BOOK
-
   BINDING_CURSE:
-    AddCoefficient: 25
+    AddCoefficient: -2500
     MaxLevel: 1
     ConflictEnchant:
       - None
@@ -366,9 +449,8 @@ Enchantment:
       - GOLDEN_HORSE_ARMOR
       - DIAMOND_HORSE_ARMOR
       - BOOK
-
   CHANNELING:
-    AddCoefficient: 800
+    AddCoefficient: 2500
     MaxLevel: 1
     ConflictEnchant:
       - RIPTIDE
@@ -376,9 +458,8 @@ Enchantment:
       - ENCHANTED_BOOK
       - TRIDENT
       - BOOK
-
   DAMAGE_ALL:
-    AddCoefficient: 25
+    AddCoefficient: 50
     MaxLevel: 10
     ConflictEnchant:
       - None
@@ -392,9 +473,8 @@ Enchantment:
       - STONE_SWORD
       - TRIDENT
       - BOOK
-
   DAMAGE_ARTHROPODS:
-    AddCoefficient: 25
+    AddCoefficient: 50
     MaxLevel: 10
     ConflictEnchant:
       - DAMAGE_UNDEAD
@@ -409,9 +489,8 @@ Enchantment:
       - STONE_SWORD
       - TRIDENT
       - BOOK
-
   DAMAGE_UNDEAD:
-    AddCoefficient: 25
+    AddCoefficient: 50
     MaxLevel: 10
     ConflictEnchant:
       - DAMAGE_ARTHROPODS
@@ -426,9 +505,8 @@ Enchantment:
       - STONE_SWORD
       - TRIDENT
       - BOOK
-
   DEPTH_STRIDER:
-    AddCoefficient: 100
+    AddCoefficient: 500
     MaxLevel: 3
     ConflictEnchant:
       - FROST_WALKER
@@ -444,7 +522,6 @@ Enchantment:
       - GOLDEN_HORSE_ARMOR
       - DIAMOND_HORSE_ARMOR
       - BOOK
-
   DIG_SPEED:
     AddCoefficient: 50
     MaxLevel: 10
@@ -478,10 +555,9 @@ Enchantment:
       - STONE_HOE
       - SHEARS
       - BOOK
-
   FIRE_ASPECT:
-    AddCoefficient: 75
-    MaxLevel: 3
+    AddCoefficient: 50
+    MaxLevel: 10
     ConflictEnchant:
       - None
     PossibleItem:
@@ -493,12 +569,11 @@ Enchantment:
       - NETHERITE_SWORD
       - STONE_SWORD
       - BOOK
-
   FROST_WALKER:
-    AddCoefficient: 150
+    AddCoefficient: 1250
     MaxLevel: 2
     ConflictEnchant:
-      - WATER_WALKER
+      - DEPTH_STRIDER
     PossibleItem:
       - ENCHANTED_BOOK
       - LEATHER_BOOTS
@@ -507,9 +582,8 @@ Enchantment:
       - IRON_BOOTS
       - NETHERITE_BOOTS
       - CHAINMAIL_BOOTS
-
   IMPALING:
-    AddCoefficient: 25
+    AddCoefficient: 50
     MaxLevel: 10
     ConflictEnchant:
       - DAMAGE_UNDEAD
@@ -524,9 +598,8 @@ Enchantment:
       - STONE_SWORD
       - TRIDENT
       - BOOK
-
   KNOCKBACK:
-    AddCoefficient: 100
+    AddCoefficient: 200
     MaxLevel: 5
     ConflictEnchant:
       - None
@@ -539,14 +612,12 @@ Enchantment:
       - NETHERITE_SWORD
       - STONE_SWORD
       - BOOK
-
   LOOT_BONUS_BLOCKS:
-    AddCoefficient: 75
+    AddCoefficient: 50
     MaxLevel: 10
     ConflictEnchant:
       - SILK_TOUCH
     PossibleItem:
-      - ENCHANTED_BOOK
       - ENCHANTED_BOOK
       - WOODEN_AXE
       - DIAMOND_AXE
@@ -573,14 +644,12 @@ Enchantment:
       - NETHERITE_HOE
       - STONE_HOE
       - BOOK
-
   LOOT_BONUS_MOBS:
-    AddCoefficient: 75
+    AddCoefficient: 50
     MaxLevel: 10
     ConflictEnchant:
       - None
     PossibleItem:
-      - ENCHANTED_BOOK
       - ENCHANTED_BOOK
       - WOODEN_SWORD
       - DIAMOND_SWORD
@@ -589,7 +658,6 @@ Enchantment:
       - NETHERITE_SWORD
       - STONE_SWORD
       - BOOK
-
   LOYALTY:
     AddCoefficient: 50
     MaxLevel: 10
@@ -599,9 +667,8 @@ Enchantment:
       - ENCHANTED_BOOK
       - TRIDENT
       - BOOK
-
   LUCK:
-    AddCoefficient: 75
+    AddCoefficient: 50
     MaxLevel: 10
     ConflictEnchant:
       - None
@@ -609,9 +676,8 @@ Enchantment:
       - ENCHANTED_BOOK
       - FISHING_ROD
       - BOOK
-
   LURE:
-    AddCoefficient: 100
+    AddCoefficient: 200
     MaxLevel: 5
     ConflictEnchant:
       - None
@@ -619,28 +685,25 @@ Enchantment:
       - ENCHANTED_BOOK
       - FISHING_ROD
       - BOOK
-
   MENDING:
-    AddCoefficient: 100000
+    AddCoefficient: 1000000
     MaxLevel: 1
     ConflictEnchant:
       - DURABILITY
     PossibleItem:
       - None
-
   MULTISHOT:
-    AddCoefficient: 200
+    AddCoefficient: 2500
     MaxLevel: 1
     ConflictEnchant:
-      - PIERCING
+      - None
     PossibleItem:
       - ENCHANTED_BOOK
       - CROSSBOW
       - BOOK
-
   OXYGEN:
-    AddCoefficient: 25
-    MaxLevel: 1
+    AddCoefficient: 50
+    MaxLevel: 10
     ConflictEnchant:
       - None
     PossibleItem:
@@ -654,19 +717,17 @@ Enchantment:
       - TURTLE_HELMET
       - BOOK
       - TURTLE_HELMET
-
   PIERCING:
-    AddCoefficient: 25
+    AddCoefficient: 50
     MaxLevel: 10
     ConflictEnchant:
-      - MULTISHOT
+      - None
     PossibleItem:
       - ENCHANTED_BOOK
       - CROSSBOW
       - BOOK
-
   PROTECTION_ENVIRONMENTAL:
-    AddCoefficient: 25
+    AddCoefficient: 50
     MaxLevel: 10
     ConflictEnchant:
       - none
@@ -705,9 +766,8 @@ Enchantment:
       - CHAINMAIL_BOOTS
       - BOOK
       - TURTLE_HELMET
-
   PROTECTION_EXPLOSIONS:
-    AddCoefficient: 25
+    AddCoefficient: 50
     MaxLevel: 10
     ConflictEnchant:
       - PROTECTION_FALL
@@ -748,9 +808,8 @@ Enchantment:
       - CHAINMAIL_BOOTS
       - BOOK
       - TURTLE_HELMET
-
   PROTECTION_FALL:
-    AddCoefficient: 25
+    AddCoefficient: 50
     MaxLevel: 10
     ConflictEnchant:
       - PROTECTION_EXPLOSIONS
@@ -769,9 +828,8 @@ Enchantment:
       - DIAMOND_HORSE_ARMOR
       - BOOK
       - TURTLE_HELMET
-
   PROTECTION_FIRE:
-    AddCoefficient: 25
+    AddCoefficient: 50
     MaxLevel: 10
     ConflictEnchant:
       - PROTECTION_EXPLOSIONS
@@ -812,9 +870,8 @@ Enchantment:
       - CHAINMAIL_BOOTS
       - BOOK
       - TURTLE_HELMET
-
   PROTECTION_PROJECTILE:
-    AddCoefficient: 25
+    AddCoefficient: 50
     MaxLevel: 10
     ConflictEnchant:
       - PROTECTION_EXPLOSIONS
@@ -855,9 +912,8 @@ Enchantment:
       - CHAINMAIL_BOOTS
       - BOOK
       - TURTLE_HELMET
-
   QUICK_CHARGE:
-    AddCoefficient: 150
+    AddCoefficient: 200
     MaxLevel: 5
     ConflictEnchant:
       - None
@@ -865,7 +921,6 @@ Enchantment:
       - ENCHANTED_BOOK
       - CROSSBOW
       - BOOK
-
   RIPTIDE:
     AddCoefficient: 200
     MaxLevel: 5
@@ -876,9 +931,8 @@ Enchantment:
       - ENCHANTED_BOOK
       - TRIDENT
       - BOOK
-
   SILK_TOUCH:
-    AddCoefficient: 400
+    AddCoefficient: 2500
     MaxLevel: 1
     ConflictEnchant:
       - LOOT_BONUS_BLOCKS
@@ -909,9 +963,8 @@ Enchantment:
       - NETHERITE_HOE
       - STONE_HOE
       - BOOK
-
   SOUL_SPEED:
-    AddCoefficient: 100
+    AddCoefficient: 200
     MaxLevel: 5
     ConflictEnchant:
       - None
@@ -924,9 +977,8 @@ Enchantment:
       - NETHERITE_BOOTS
       - CHAINMAIL_BOOTS
       - BOOK
-
   SWEEPING_EDGE:
-    AddCoefficient: 25
+    AddCoefficient: 50
     MaxLevel: 10
     ConflictEnchant:
       - None
@@ -939,9 +991,8 @@ Enchantment:
       - NETHERITE_SWORD
       - STONE_SWORD
       - BOOK
-
   THORNS:
-    AddCoefficient: 150
+    AddCoefficient: 50
     MaxLevel: 10
     ConflictEnchant:
       - None
@@ -983,9 +1034,291 @@ Enchantment:
       - CHAINMAIL_BOOTS
       - TURTLE_HELMET
       - BOOK
-
   VANISHING_CURSE:
-    AddCoefficient: 25
+    AddCoefficient: -2500
+    MaxLevel: 1
+    ConflictEnchant:
+      - None
+    PossibleItem:
+      - ENCHANTED_BOOK
+      - WOODEN_AXE
+      - WOODEN_HOE
+      - WOODEN_PICKAXE
+      - WOODEN_SHOVEL
+      - WOODEN_SWORD
+      - DIAMOND_AXE
+      - DIAMOND_HOE
+      - DIAMOND_PICKAXE
+      - DIAMOND_SHOVEL
+      - DIAMOND_SWORD
+      - GOLDEN_AXE
+      - GOLDEN_HOE
+      - GOLDEN_PICKAXE
+      - GOLDEN_SHOVEL
+      - GOLDEN_SWORD
+      - IRON_AXE
+      - IRON_HOE
+      - IRON_PICKAXE
+      - IRON_SHOVEL
+      - IRON_SWORD
+      - NETHERITE_AXE
+      - NETHERITE_HOE
+      - NETHERITE_PICKAXE
+      - NETHERITE_SHOVEL
+      - NETHERITE_SWORD
+      - STONE_AXE
+      - STONE_HOE
+      - STONE_PICKAXE
+      - STONE_SHOVEL
+      - STONE_SWORD
+      - LEATHER_BOOTS
+      - LEATHER_CHESTPLATE
+      - LEATHER_HELMET
+      - LEATHER_HORSE_ARMOR
+      - LEATHER_LEGGINGS
+      - DIAMOND_BOOTS
+      - DIAMOND_CHESTPLATE
+      - DIAMOND_HELMET
+      - DIAMOND_HORSE_ARMOR
+      - DIAMOND_LEGGINGS
+      - GOLDEN_BOOTS
+      - GOLDEN_CHESTPLATE
+      - GOLDEN_HELMET
+      - GOLDEN_HORSE_ARMOR
+      - GOLDEN_LEGGINGS
+      - IRON_BOOTS
+      - IRON_CHESTPLATE
+      - IRON_HELMET
+      - IRON_HORSE_ARMOR
+      - IRON_LEGGINGS
+      - NETHERITE_BOOTS
+      - NETHERITE_CHESTPLATE
+      - NETHERITE_HELMET
+      - NETHERITE_HORSE_ARMOR
+      - NETHERITE_LEGGINGS
+      - CHAINMAIL_BOOTS
+      - CHAINMAIL_CHESTPLATE
+      - CHAINMAIL_HELMET
+      - CHAINMAIL_HORSE_ARMOR
+      - CHAINMAIL_LEGGINGS
+      - ENCHANTED_BOOK
+      - ELYTRA
+      - TURTLE_HELMET
+      - CROSSBOW
+      - CARROT_ON_A_STICK
+      - WARPED_FUNGUS_ON_A_STICK
+      - SHIELD
+      - BOW
+      - FISHING_ROD
+      - FLINT_AND_STEEL
+      - TRIDENT
+      - SHEARS
+      - BOOK
+  WATER_WORKER:
+    AddCoefficient: 2500
+    MaxLevel: 1
+    ConflictEnchant:
+      - None
+    PossibleItem:
+      - LEATHER_HELMET
+      - DIAMOND_HELMET
+      - GOLDEN_HELMET
+      - IRON_HELMET
+      - NETHERITE_HELMET
+      - CHAINMAIL_HELMET
+      - BOOK
+      - TURTLE_HELMET
+  SWIFT_SNEAK:
+    AddCoefficient: 200
+    MaxLevel: 5
+    ConflictEnchant:
+      - None
+    PossibleItem:
+      - ENCHANTED_BOOK
+      - LEATHER_LEGGINGS
+      - DIAMOND_LEGGINGS
+      - GOLDEN_LEGGINGS
+      - IRON_LEGGINGS
+      - NETHERITE_LEGGINGS
+      - CHAINMAIL_LEGGINGS
+      - BOOK
+  テレキネシス:
+    AddCoefficient: 200
+    MaxLevel: 10
+    ConflictEnchant:
+      - None
+    PossibleItem:
+      - ENCHANTED_BOOK
+      - WOODEN_AXE
+      - DIAMOND_AXE
+      - GOLDEN_AXE
+      - IRON_AXE
+      - NETHERITE_AXE
+      - STONE_AXE
+      - WOODEN_PICKAXE
+      - DIAMOND_PICKAXE
+      - GOLDEN_PICKAXE
+      - IRON_PICKAXE
+      - NETHERITE_PICKAXE
+      - STONE_PICKAXE
+      - WOODEN_SHOVEL
+      - DIAMOND_SHOVEL
+      - GOLDEN_SHOVEL
+      - IRON_SHOVEL
+      - NETHERITE_SHOVEL
+      - STONE_SHOVEL
+      - WOODEN_HOE
+      - DIAMOND_HOE
+      - GOLDEN_HOE
+      - IRON_HOE
+      - NETHERITE_HOE
+      - STONE_HOE
+      - BOOK
+      - WOODEN_SWORD
+      - DIAMOND_SWORD
+      - GOLDEN_SWORD
+      - IRON_SWORD
+      - NETHERITE_SWORD
+      - STONE_SWORD
+      - TRIDENT
+  虹の剪毛:
+    AddCoefficient: 2500
+    MaxLevel: 1
+    ConflictEnchant:
+      - None
+    PossibleItem:
+      - ENCHANTED_BOOK
+      - BOOK
+      - SHEARS
+  自動精錬:
+    AddCoefficient: 200
+    MaxLevel: 5
+    ConflictEnchant:
+      - None
+    PossibleItem:
+      - ENCHANTED_BOOK
+      - BOOK
+      - WOODEN_AXE
+      - DIAMOND_AXE
+      - GOLDEN_AXE
+      - IRON_AXE
+      - NETHERITE_AXE
+      - STONE_AXE
+      - WOODEN_PICKAXE
+      - DIAMOND_PICKAXE
+      - GOLDEN_PICKAXE
+      - IRON_PICKAXE
+      - NETHERITE_PICKAXE
+      - STONE_PICKAXE
+      - WOODEN_SHOVEL
+      - DIAMOND_SHOVEL
+      - GOLDEN_SHOVEL
+      - IRON_SHOVEL
+      - NETHERITE_SHOVEL
+      - STONE_SHOVEL
+      - WOODEN_HOE
+      - DIAMOND_HOE
+      - GOLDEN_HOE
+      - IRON_HOE
+      - NETHERITE_HOE
+      - STONE_HOE
+  頭蓋崇拝:
+    AddCoefficient: 50
+    MaxLevel: 10
+    ConflictEnchant:
+      - None
+    PossibleItem:
+      - ENCHANTED_BOOK
+      - BOOK
+      - WOODEN_SWORD
+      - DIAMOND_SWORD
+      - GOLDEN_SWORD
+      - IRON_SWORD
+      - NETHERITE_SWORD
+      - STONE_SWORD
+      - TRIDENT
+  自壊の呪い:
+    AddCoefficient: -2500
+    MaxLevel: 1
+    ConflictEnchant:
+      - None
+    PossibleItem:
+      - ENCHANTED_BOOK
+      - WOODEN_AXE
+      - WOODEN_HOE
+      - WOODEN_PICKAXE
+      - WOODEN_SHOVEL
+      - WOODEN_SWORD
+      - DIAMOND_AXE
+      - DIAMOND_HOE
+      - DIAMOND_PICKAXE
+      - DIAMOND_SHOVEL
+      - DIAMOND_SWORD
+      - GOLDEN_AXE
+      - GOLDEN_HOE
+      - GOLDEN_PICKAXE
+      - GOLDEN_SHOVEL
+      - GOLDEN_SWORD
+      - IRON_AXE
+      - IRON_HOE
+      - IRON_PICKAXE
+      - IRON_SHOVEL
+      - IRON_SWORD
+      - NETHERITE_AXE
+      - NETHERITE_HOE
+      - NETHERITE_PICKAXE
+      - NETHERITE_SHOVEL
+      - NETHERITE_SWORD
+      - STONE_AXE
+      - STONE_HOE
+      - STONE_PICKAXE
+      - STONE_SHOVEL
+      - STONE_SWORD
+      - LEATHER_BOOTS
+      - LEATHER_CHESTPLATE
+      - LEATHER_HELMET
+      - LEATHER_HORSE_ARMOR
+      - LEATHER_LEGGINGS
+      - DIAMOND_BOOTS
+      - DIAMOND_CHESTPLATE
+      - DIAMOND_HELMET
+      - DIAMOND_HORSE_ARMOR
+      - DIAMOND_LEGGINGS
+      - GOLDEN_BOOTS
+      - GOLDEN_CHESTPLATE
+      - GOLDEN_HELMET
+      - GOLDEN_HORSE_ARMOR
+      - GOLDEN_LEGGINGS
+      - IRON_BOOTS
+      - IRON_CHESTPLATE
+      - IRON_HELMET
+      - IRON_HORSE_ARMOR
+      - IRON_LEGGINGS
+      - NETHERITE_BOOTS
+      - NETHERITE_CHESTPLATE
+      - NETHERITE_HELMET
+      - NETHERITE_HORSE_ARMOR
+      - NETHERITE_LEGGINGS
+      - CHAINMAIL_BOOTS
+      - CHAINMAIL_CHESTPLATE
+      - CHAINMAIL_HELMET
+      - CHAINMAIL_HORSE_ARMOR
+      - CHAINMAIL_LEGGINGS
+      - ENCHANTED_BOOK
+      - ELYTRA
+      - TURTLE_HELMET
+      - CROSSBOW
+      - CARROT_ON_A_STICK
+      - WARPED_FUNGUS_ON_A_STICK
+      - SHIELD
+      - BOW
+      - FISHING_ROD
+      - FLINT_AND_STEEL
+      - TRIDENT
+      - SHEARS
+      - BOOK
+  諸刃の呪い:
+    AddCoefficient: -2500
     MaxLevel: 1
     ConflictEnchant:
       - None
@@ -1065,34 +1398,179 @@ Enchantment:
       - SHEARS
       - BOOK
 
-  WATER_WORKER:
-    AddCoefficient: 200
+  虫の知らせ:
+    AddCoefficient: 2500
     MaxLevel: 1
     ConflictEnchant:
       - None
     PossibleItem:
+      - ENCHANTED_BOOK
+      - WOODEN_AXE
+      - WOODEN_HOE
+      - WOODEN_PICKAXE
+      - WOODEN_SHOVEL
+      - WOODEN_SWORD
+      - DIAMOND_AXE
+      - DIAMOND_HOE
+      - DIAMOND_PICKAXE
+      - DIAMOND_SHOVEL
+      - DIAMOND_SWORD
+      - GOLDEN_AXE
+      - GOLDEN_HOE
+      - GOLDEN_PICKAXE
+      - GOLDEN_SHOVEL
+      - GOLDEN_SWORD
+      - IRON_AXE
+      - IRON_HOE
+      - IRON_PICKAXE
+      - IRON_SHOVEL
+      - IRON_SWORD
+      - NETHERITE_AXE
+      - NETHERITE_HOE
+      - NETHERITE_PICKAXE
+      - NETHERITE_SHOVEL
+      - NETHERITE_SWORD
+      - STONE_AXE
+      - STONE_HOE
+      - STONE_PICKAXE
+      - STONE_SHOVEL
+      - STONE_SWORD
+      - LEATHER_BOOTS
+      - LEATHER_CHESTPLATE
       - LEATHER_HELMET
+      - LEATHER_HORSE_ARMOR
+      - LEATHER_LEGGINGS
+      - DIAMOND_BOOTS
+      - DIAMOND_CHESTPLATE
       - DIAMOND_HELMET
+      - DIAMOND_HORSE_ARMOR
+      - DIAMOND_LEGGINGS
+      - GOLDEN_BOOTS
+      - GOLDEN_CHESTPLATE
       - GOLDEN_HELMET
+      - GOLDEN_HORSE_ARMOR
+      - GOLDEN_LEGGINGS
+      - IRON_BOOTS
+      - IRON_CHESTPLATE
       - IRON_HELMET
+      - IRON_HORSE_ARMOR
+      - IRON_LEGGINGS
+      - NETHERITE_BOOTS
+      - NETHERITE_CHESTPLATE
       - NETHERITE_HELMET
+      - NETHERITE_HORSE_ARMOR
+      - NETHERITE_LEGGINGS
+      - CHAINMAIL_BOOTS
+      - CHAINMAIL_CHESTPLATE
       - CHAINMAIL_HELMET
-      - BOOK
+      - CHAINMAIL_HORSE_ARMOR
+      - CHAINMAIL_LEGGINGS
+      - ENCHANTED_BOOK
+      - ELYTRA
       - TURTLE_HELMET
+      - CROSSBOW
+      - CARROT_ON_A_STICK
+      - WARPED_FUNGUS_ON_A_STICK
+      - SHIELD
+      - BOW
+      - FISHING_ROD
+      - FLINT_AND_STEEL
+      - TRIDENT
+      - SHEARS
+      - BOOK
 
-  SWIFT_SNEAK:
-    AddCoefficient: 400
-    MaxLevel: 5
+  豊穣の舞:
+    AddCoefficient: 50
+    MaxLevel: 10
+    ConflictEnchant:
+      - None
+    PossibleItem:
+      - LEATHER_LEGGINGS
+      - DIAMOND_LEGGINGS
+      - GOLDEN_LEGGINGS
+      - IRON_LEGGINGS
+      - NETHERITE_LEGGINGS
+      - CHAINMAIL_LEGGINGS
+      - ENCHANTED_BOOK
+      - BOOK
+
+  ソウルバインド:
+    AddCoefficient: 50
+    MaxLevel: 10
     ConflictEnchant:
       - None
     PossibleItem:
       - ENCHANTED_BOOK
+      - WOODEN_AXE
+      - WOODEN_HOE
+      - WOODEN_PICKAXE
+      - WOODEN_SHOVEL
+      - WOODEN_SWORD
+      - DIAMOND_AXE
+      - DIAMOND_HOE
+      - DIAMOND_PICKAXE
+      - DIAMOND_SHOVEL
+      - DIAMOND_SWORD
+      - GOLDEN_AXE
+      - GOLDEN_HOE
+      - GOLDEN_PICKAXE
+      - GOLDEN_SHOVEL
+      - GOLDEN_SWORD
+      - IRON_AXE
+      - IRON_HOE
+      - IRON_PICKAXE
+      - IRON_SHOVEL
+      - IRON_SWORD
+      - NETHERITE_AXE
+      - NETHERITE_HOE
+      - NETHERITE_PICKAXE
+      - NETHERITE_SHOVEL
+      - NETHERITE_SWORD
+      - STONE_AXE
+      - STONE_HOE
+      - STONE_PICKAXE
+      - STONE_SHOVEL
+      - STONE_SWORD
       - LEATHER_BOOTS
+      - LEATHER_CHESTPLATE
+      - LEATHER_HELMET
+      - LEATHER_HORSE_ARMOR
+      - LEATHER_LEGGINGS
       - DIAMOND_BOOTS
+      - DIAMOND_CHESTPLATE
+      - DIAMOND_HELMET
+      - DIAMOND_HORSE_ARMOR
+      - DIAMOND_LEGGINGS
       - GOLDEN_BOOTS
+      - GOLDEN_CHESTPLATE
+      - GOLDEN_HELMET
+      - GOLDEN_HORSE_ARMOR
+      - GOLDEN_LEGGINGS
       - IRON_BOOTS
+      - IRON_CHESTPLATE
+      - IRON_HELMET
+      - IRON_HORSE_ARMOR
+      - IRON_LEGGINGS
       - NETHERITE_BOOTS
+      - NETHERITE_CHESTPLATE
+      - NETHERITE_HELMET
+      - NETHERITE_HORSE_ARMOR
+      - NETHERITE_LEGGINGS
       - CHAINMAIL_BOOTS
+      - CHAINMAIL_CHESTPLATE
+      - CHAINMAIL_HELMET
+      - CHAINMAIL_HORSE_ARMOR
+      - CHAINMAIL_LEGGINGS
+      - ENCHANTED_BOOK
+      - ELYTRA
+      - TURTLE_HELMET
+      - CROSSBOW
+      - CARROT_ON_A_STICK
+      - WARPED_FUNGUS_ON_A_STICK
+      - SHIELD
+      - BOW
+      - FISHING_ROD
+      - FLINT_AND_STEEL
+      - TRIDENT
+      - SHEARS
       - BOOK
-
-

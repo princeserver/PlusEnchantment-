@@ -3,6 +3,7 @@ package com.github.majisyou.plusenchantment.Command;
 import com.github.majisyou.plusenchantment.Config.EnchantmentManager;
 import com.github.majisyou.plusenchantment.PlusEnchantment;
 import com.github.majisyou.plusenchantment.System.CustomEnchants;
+import com.github.majisyou.plusenchantment.System.EnchantSystem;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.command.Command;
@@ -23,14 +24,15 @@ public class Cmd_DebugEnchant implements CommandExecutor {
 
     @Override
     public boolean onCommand(@NotNull CommandSender sender, @NotNull Command command, @NotNull String label, @NotNull String[] args) {
-
-        Player player = (Player) sender;
-        sender.sendMessage(player.getInventory().getItemInMainHand().getType().name()+EnchantmentManager.getScrapCoefficient(player.getInventory().getItemInMainHand().getType().name())+"の値");
-
-//
-//        if(sender instanceof Player player){
+//        Player player = (Player) sender;
+//        sender.sendMessage(player.getInventory().getItemInMainHand().getType().name()+EnchantmentManager.getScrapCoefficient(player.getInventory().getItemInMainHand().getType().name())+"の値");
+        if(sender instanceof Player player){
+            ItemStack item2 = new ItemStack(Material.DIAMOND_PICKAXE);
+//            EnchantSystem.setCustomEnchant(item2,3);
+            player.getInventory().addItem(item2);
+            return true;
 //            ItemStack item = new ItemStack(Material.DIAMOND_PICKAXE);
-//            item.addUnsafeEnchantment(CustomEnchants.TELEPATHY,1);
+//            item.addUnsafeEnchantment(CustomEnchants.TELEKINESIS,1);
 //            item.addUnsafeEnchantment(Enchantment.DIG_SPEED,100);
 //            List<String> lore = new ArrayList<>();
 //            lore.add(ChatColor.GRAY+"Telepathy I");
@@ -43,8 +45,7 @@ public class Cmd_DebugEnchant implements CommandExecutor {
 //
 //            player.getInventory().addItem(item);
 //            return true;
-//
-//        }
+        }
         return true;
     }
 }

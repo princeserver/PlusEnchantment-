@@ -1,6 +1,7 @@
 package com.github.majisyou.plusenchantment.Config;
 
 import com.github.majisyou.plusenchantment.PlusEnchantment;
+import org.bukkit.Material;
 import org.bukkit.configuration.file.FileConfiguration;
 
 public class ItemConfig {
@@ -17,5 +18,7 @@ public class ItemConfig {
     public static void reloadConfig(){
         config = new CustomConfig(plugin,"Item.yml").getConfig();
     }
+
+
 
 }

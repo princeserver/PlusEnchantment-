@@ -1,5 +1,6 @@
 package com.github.majisyou.plusenchantment.Event;
 
+import com.github.majisyou.plusenchantment.Config.ItemConfig;
 import com.github.majisyou.plusenchantment.PlusEnchantment;
 import com.github.majisyou.plusenchantment.System.EnchantSystem;
 import com.github.majisyou.plusenchantment.System.SoundSystem;
@@ -8,7 +9,6 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryCloseEvent;
-import org.bukkit.event.inventory.InventoryType;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
 
@@ -27,58 +27,49 @@ public class CloseInventory implements Listener {
             ItemStack leftItem = inventory.getItem(3);
             ItemStack rightItem = inventory.getItem(5);
 
-            if(EnchantSystem.EnchantItemJudge(leftItem.getType().name())){
-                if(event.getPlayer().getInventory().firstEmpty()==-1){
-                    event.getPlayer().getWorld().dropItem(event.getPlayer().getLocation(),leftItem);
-                }else {
-                    event.getPlayer().getInventory().addItem(leftItem);
-                }
+            if(EnchantSystem.EnchantItemJudge(leftItem)){
+                EnchantSystem.addItemToInventory(leftItem,(Player) event.getPlayer());
             }
 
-            if(EnchantSystem.EnchantItemJudge(rightItem.getType().name())){
-                if(event.getPlayer().getInventory().firstEmpty()==-1){
-                    event.getPlayer().getWorld().dropItem(event.getPlayer().getLocation(),rightItem);
-                }else {
-                    event.getPlayer().getInventory().addItem(rightItem);
-                }
+            if(EnchantSystem.EnchantItemJudge(rightItem)){
+                EnchantSystem.addItemToInventory(rightItem,(Player) event.getPlayer());
             }
 
-            if(rightItem.getType().equals(Material.COMMAND_BLOCK)){
-                if(event.getPlayer().getInventory().firstEmpty()==-1){
-                    event.getPlayer().getWorld().dropItem(event.getPlayer().getLocation(),rightItem);
-                }else {
-                    event.getPlayer().getInventory().addItem(rightItem);
-                }
+            if(rightItem.getType().equals(Material.getMaterial(ItemConfig.getItemType("Scrap")))){
+                EnchantSystem.addItemToInventory(rightItem,(Player) event.getPlayer());
             }
 
-            if(leftItem.getType().equals(Material.COMMAND_BLOCK)){
-                if(event.getPlayer().getInventory().firstEmpty()==-1){
-                    event.getPlayer().getWorld().dropItem(event.getPlayer().getLocation(),leftItem);
-                }else {
-                    event.getPlayer().getInventory().addItem(leftItem);
-                }
+            if(leftItem.getType().equals(Material.CHAIN_COMMAND_BLOCK)) {
+                EnchantSystem.addItemToInventory(leftItem,(Player) event.getPlayer());
             }
-
-            if(rightItem.getType().equals(Material.CHAIN_COMMAND_BLOCK)){
-                if(event.getPlayer().getInventory().firstEmpty()==-1){
-                    event.getPlayer().getWorld().dropItem(event.getPlayer().getLocation(),rightItem);
-                }else {
-                    event.getPlayer().getInventory().addItem(rightItem);
-                }
-            }
-
-            if(leftItem.getType().equals(Material.CHAIN_COMMAND_BLOCK)){
-                if(event.getPlayer().getInventory().firstEmpty()==-1){
-                    event.getPlayer().getWorld().dropItem(event.getPlayer().getLocation(),leftItem);
-                }else {
-                    event.getPlayer().getInventory().addItem(leftItem);
-                }
-            }
-
         }
 
-        if(event.getInventory().getType().equals(InventoryType.ANVIL)){
-            ((Player) event.getPlayer()).setLevel(((Player) event.getPlayer()).getLevel());
+
+        if(event.getView().getTitle().equals("カスタムエンチャントテーブル")){
+            SoundSystem.CloseSound((Player) event.getPlayer());
+            Inventory inventory = event.getInventory();
+            ItemStack soul1 = inventory.getItem(2);
+            ItemStack soul2 = inventory.getItem(3);
+            ItemStack soul3 = inventory.getItem(4);
+            ItemStack book = inventory.getItem(21);
+
+
+            if(soul1.getType().equals(Material.getMaterial(ItemConfig.getItemType("Soul")))){
+                EnchantSystem.addItemToInventory(soul1,(Player) event.getPlayer());
+            }
+            if(soul2.getType().equals(Material.getMaterial(ItemConfig.getItemType("Soul")))){
+                EnchantSystem.addItemToInventory(soul2,(Player) event.getPlayer());
+            }if(soul3.getType().equals(Material.getMaterial(ItemConfig.getItemType("Soul")))){
+                EnchantSystem.addItemToInventory(soul3,(Player) event.getPlayer());
+            }
+
+            if(book.getType().equals(Material.BOOK) || book.getType().equals(Material.ENCHANTED_BOOK)) {
+                EnchantSystem.addItemToInventory(book,(Player) event.getPlayer());
+            }
         }
+
+//        if(event.getInventory().getType().equals(InventoryType.ANVIL)){
+//            ((Player) event.getPlayer()).setLevel(((Player) event.getPlayer()).getLevel());
+//        }
     }
 }

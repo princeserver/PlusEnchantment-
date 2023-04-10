@@ -3,7 +3,7 @@ plugins {
 }
 
 group = 'com.github.majisyou'
-version = '1.0-28'
+version = '2.0-2'
 tasks.withType(AbstractCompile)*.options*.encoding = tasks.withType(GroovyCompile)*.groovyOptions*.encoding = 'UTF-8'
 
 repositories {
@@ -19,7 +19,7 @@ repositories {
 }
 
 dependencies {
-    compileOnly 'io.papermc.paper:paper-api:1.18.1-R0.1-SNAPSHOT'
+    compileOnly 'io.papermc.paper:paper-api:1.19.3-R0.1-SNAPSHOT'
 }
 
 def targetJavaVersion = 17

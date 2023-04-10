@@ -90,45 +90,75 @@ Item:
 
   Iron:
     ItemType: WHITE_STAINED_GLASS_PANE
+    Count:
     CustomModelData: 1
 
   Gold:
     ItemType: WHITE_STAINED_GLASS_PANE
+    Count:
     CustomModelData: 1
 
   Diamond:
     ItemType: WHITE_STAINED_GLASS_PANE
+    Count:
     CustomModelData: 1
 
   NetherQuartz:
     ItemType: WHITE_STAINED_GLASS_PANE
+    Count:
     CustomModelData: 1
 
   Copper:
     ItemType: WHITE_STAINED_GLASS_PANE
+    Count:
     CustomModelData: 1
 
   Coal:
     ItemType: WHITE_STAINED_GLASS_PANE
+    Count:
     CustomModelData: 1
 
 
   Netherite:
     ItemType: WHITE_STAINED_GLASS_PANE
+    Count:
     CustomModelData: 1
 
   RedStone:
     ItemType: WHITE_STAINED_GLASS_PANE
+    Count:
     CustomModelData: 1
 
   Lapis:
     ItemType: WHITE_STAINED_GLASS_PANE
+    Count:
     CustomModelData: 1
 
   Amethyst:
     ItemType: WHITE_STAINED_GLASS_PANE
+    Count:
     CustomModelData: 1
 
   Scrap:
     ItemType: COMMAND_BLOCK
     CustomModelData: 1
+
+  SoulEmpty:
+    ItemType: WHITE_STAINED_GLASS_PANE
+    CustomModelData: 3405
+
+  Soul:
+    ItemType: LAPIS_LAZULI
+    CustomModelData: 2
+
+  WitherSkeleton:
+    ItemType: WITHER_SKELETON_SKULL
+    CustomModelData: 1
+
+  EnchantMode:
+    ItemType: ENCHANTING_TABLE
+    CustomModelData: 1
+
+  SoulMode:
+    ItemType: LAPIS_LAZULI
+    CustomModelData: 2
